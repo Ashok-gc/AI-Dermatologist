@@ -66,7 +66,7 @@ class CustomStretchedTextButtonWidget extends StatelessWidget {
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               shadowColor: AppColors.primaryColor.withOpacity(0.25),
-              backgroundColor: onTap == null ? Colors.transparent : AppColors.primaryColor,
+              backgroundColor: onTap == null ? const Color.fromARGB(132, 41, 43, 73) : AppColors.primaryColor,
               minimumSize: const Size(30, 62),
               shape: RoundedRectangleBorder(
                 borderRadius: const BorderRadius.all(AppComponents.defaultBorderRadius),

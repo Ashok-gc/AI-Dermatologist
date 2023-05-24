@@ -10,8 +10,6 @@ void main() {
 
 class AiDermatologist extends StatelessWidget {
   const AiDermatologist({Key? key}) : super(key: key);
-
-  // This widget is the root of this app.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

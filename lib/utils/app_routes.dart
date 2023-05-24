@@ -1,4 +1,7 @@
 
+import 'package:ai_dermatologist/screens/password_recovery_screens/password_recovery_enter_email_screen.dart';
+import 'package:ai_dermatologist/screens/password_recovery_screens/password_recovery_select_screen.dart';
+import 'package:ai_dermatologist/screens/password_recovery_screens/password_reset_link_sent_sucess_screen.dart';
 import 'package:ai_dermatologist/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +20,16 @@ class AppRouteGenerator {
       case AppPageNames.introScreen:
         return MaterialPageRoute(builder: (_) => const IntroScreen());
       case AppPageNames.signInScreen:
+        return MaterialPageRoute(builder: (_) => const SignInScreen());
+      case AppPageNames.signUpScreen:
+        return MaterialPageRoute(builder: (_) => const SignInScreen());
+      case AppPageNames.passwordRecoverySelectScreen:
+        return MaterialPageRoute(builder: (_) => const PasswordRecoverySelectScreen());
+      case AppPageNames.resetPasswordEmailScreen:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordEmailScreen());
+      case AppPageNames.passwordResentLinkSentSucessScreen:
+        return MaterialPageRoute(builder: (_) => const PasswordResentLinkSentSucessScreen());
+      case AppPageNames.homeScreen:
         return MaterialPageRoute(builder: (_) => const SignInScreen());
       default:
         // Open this page if wrong route address used

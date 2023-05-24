@@ -45,12 +45,6 @@ class _SplashScreenState extends State<SplashScreen> {
               AppGaps.wGap10,
             ],
           ),
-          //app name
-          
-
-          
-
-
         ),
       ),
     );

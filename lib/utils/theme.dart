@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'constants/app_colors.dart';
 import 'constants/app_components.dart';
 
-/// This file contain theme data of the app and initial custom default widget
-/// configurations
 class AppThemeData {
   static final ThemeData appThemeData = ThemeData(
       // Set default font name
@@ -14,33 +12,33 @@ class AppThemeData {
       scaffoldBackgroundColor: AppColors.shadeColor2,
       // Setting all default textTheme based on design
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
             fontSize: 36,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.bold),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
             fontSize: 26,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.bold),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
             fontSize: 24,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.bold),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
             fontSize: 20,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.bold),
-        button: TextStyle(
+        labelLarge: TextStyle(
             fontSize: 18,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.w600),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
             fontSize: 16,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.w400),
-        caption: TextStyle(
+        bodySmall: TextStyle(
             fontSize: 14,
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.w400),
       ),
       // Set default TextField theme design
@@ -64,7 +62,7 @@ class AppThemeData {
         titleTextStyle: TextStyle(
             fontSize: 24,
             fontFamily: 'SF Pro Display',
-            color: AppColors.darkColor,
+            color: AppColors.white,
             fontWeight: FontWeight.bold),
       ),
       popupMenuTheme: const PopupMenuThemeData(
@@ -72,7 +70,7 @@ class AppThemeData {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(14))),
           textStyle: TextStyle(
-              color: AppColors.darkColor,
+              color: AppColors.white,
               fontSize: 14,
               fontWeight: FontWeight.w500)));
 }

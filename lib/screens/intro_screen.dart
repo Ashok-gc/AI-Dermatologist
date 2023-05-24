@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../models/fake_data.dart';
 import '../utils/constants/app_colors.dart';
 import '../utils/constants/app_gaps.dart';
@@ -37,6 +35,8 @@ class _IntroScreenState extends State<IntroScreen> {
     /// Get screen size
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+
       /* <-------- Content --------> */
       body: SafeArea(
           top: true,
@@ -68,20 +68,20 @@ class _IntroScreenState extends State<IntroScreen> {
                         },
                       ),
                     ),
-                    AppGaps.hGap10,
+                    AppGaps.hGap56,
                     SizedBox(
                       /* <---- Current page dot indicator widget ----> */
                       child: SmoothPageIndicator(
                         controller: _pageController,
                         count: FakeData.fakeIntroContents.length,
                         axisDirection: Axis.horizontal,
-                        effect: ExpandingDotsEffect(
+                        effect: const ExpandingDotsEffect(
                             dotHeight: 8,
                             dotWidth: 8,
-                            spacing: 2,
+                            spacing: 4,
                             expansionFactor: 3,
-                            activeDotColor: AppColors.primaryColor,
-                            dotColor: AppColors.darkColor.withOpacity(0.2)),
+                            activeDotColor: AppColors.textColor1,
+                            dotColor: AppColors.tertiaryColor),
                       ),
                     )
                   ]),
@@ -94,7 +94,7 @@ class _IntroScreenState extends State<IntroScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               /* <---- Next button ----> */
-              CustomStretchedTextButtonWidget(
+              CustomSmallTextButtonWidget(
                   buttonText: 'Next',
                   onTap: () {
                     _gotoNextIntroSection(context);
@@ -105,7 +105,10 @@ class _IntroScreenState extends State<IntroScreen> {
                     // Goto sign in screen.
                     Navigator.pushNamed(context, AppPageNames.signInScreen);
                   },
-                  child: const Text('Skip'))
+                  child: const Text(
+                    'Skip',
+                    style: TextStyle(color: Colors.white),
+                  ))
             ]),
       ),
     );

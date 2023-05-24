@@ -19,7 +19,6 @@ class AiDermatologist extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouteGenerator.generateRoute,
       initialRoute: AppPageNames.rootScreen,
-
       theme: AppThemeData.appThemeData,
     );
   }

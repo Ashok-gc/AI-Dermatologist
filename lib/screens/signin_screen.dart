@@ -26,6 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       /* <-------- Empty appbar --------> */
+      backgroundColor: AppColors.primaryColor,
       appBar: CoreWidgets.appBarWidget(
           screenContext: context, hasBackButton: false),
       /* <-------- Content --------> */
@@ -40,7 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
                 const HighlightAndDetailTextWidget(
                     isSpaceShorter: true,
-                    slogan: 'Welcome to Ecomik',
+                    slogan: 'Welcome to AI Dermatologist',
                     subtitle: 'Hello there, sign in to continue'),
                 AppGaps.hGap24,
                 /* <---- Email text field ----> */
@@ -90,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           width: 35,
                           height: 20,
                           toggleSize: 12,
-                          activeColor: AppColors.primaryColor,
+                          activeColor: AppColors.successColor,
                           onToggle: (value) =>
                               setState(() => _toggleRememberLogin = value),
                         ),
@@ -98,8 +99,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         Text('Remember me',
                             style: TextStyle(
                                 color: _toggleRememberLogin
-                                    ? AppColors.primaryColor
-                                    : AppColors.bodyTextColor)),
+                                    ? AppColors.successColor
+                                    : AppColors.white)),
                       ],
                     ),
                     /* <---- Forget password? text button ----> */
@@ -107,17 +108,17 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Text('Forgot password?',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText2
+                              .bodyMedium
                               ?.copyWith(color: AppColors.alertColor)),
                       onTap: () {
                         // Goto verification method selection screen.
-                        // Navigator.pushNamed(
-                        //     context, AppPageNames.passwordRecoverySelectScreen);
+                        Navigator.pushNamed(
+                            context, AppPageNames.passwordRecoverySelectScreen);
                       },
                     ),
                   ],
                 ),
-                AppGaps.hGap48,
+                AppGaps.hGap25,
                 /* <---- Sign in button ----> */
                 CustomStretchedTextButtonWidget(
                     buttonText: 'Sign in',
@@ -126,13 +127,13 @@ class _SignInScreenState extends State<SignInScreen> {
                       // Navigator.pushNamed(
                       //     context, AppPageNames.homeNavigatorScreen);
                     }),
-                AppGaps.hGap48,
+                AppGaps.hGap24,
                 Center(
                     child: Text('Or Sign in with social account',
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                              color: AppColors.bodyTextColor,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: AppColors.white,
                             ))),
-                AppGaps.hGap48,
+                AppGaps.hGap24,
                 /* <---- Social buttons row ----> */
                 Center(
                     child: Row(
@@ -144,12 +145,10 @@ class _SignInScreenState extends State<SignInScreen> {
                         border: Border.all(color: AppColors.lineShapeColor),
                         child:
                             SvgPicture.asset(AppAssetImages.googleSVGLogoColor),
-                        onTap: () {}),
-                    AppGaps.wGap15
-                  ],
-                )),
+                        onTap: () {})
+              ])),
                 // Bottom extra spaces
-                AppGaps.hGap30,
+                AppGaps.hGap20,
               ],
             ),
           ),
@@ -163,7 +162,7 @@ class _SignInScreenState extends State<SignInScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text('Don\'t have an account?',
-                style: TextStyle(color: AppColors.bodyTextColor)),
+                style: TextStyle(color: AppColors.white)),
             AppGaps.wGap5,
             /* <---- Sign up TextButton ----> */
             CustomTightTextButtonWidget(
@@ -174,8 +173,8 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Text('Sign up',
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText2
-                      ?.copyWith(color: AppColors.primaryColor)),
+                      .bodyMedium
+                      ?.copyWith(color: AppColors.successColor)),
             )
           ],
         ),

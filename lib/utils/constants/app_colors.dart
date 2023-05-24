@@ -15,6 +15,9 @@ class AppColors {
   static const Color shadeColor1 = Color(0xFFF4F5FA);
   static const Color shadeColor2 = Color(0xFFF7F7FB);
   static const Color black = Color(0xFF1E1E1E);
+  static const Color textColor1= Color(0xFFF4F5FA);
+  static const Color white= Color(0xFFF4F5FA);
+
 
   /// Custom MaterialColor from Helper function
   static final MaterialColor primaryMaterialColor =

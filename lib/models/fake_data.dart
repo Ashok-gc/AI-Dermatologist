@@ -4,19 +4,19 @@ class FakeData {
   // Intro screens
   static List<FakeIntroContent> fakeIntroContents = [
     FakeIntroContent(
-        localSVGImageLocation: 'assests/images/img-1.png',
-        slogan: 'Discover something new',
+        localSVGImageLocation: 'assets/images/img-1.png',
+        slogan: 'Say No Doctor?',
         content:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry'),
+            '"Check your skin from home. Save your time and life before detecting a mole early stage from the smartphone.'),
     FakeIntroContent(
-        localSVGImageLocation: 'assests/images/img-2.png',
-        slogan: 'Clearly different',
+        localSVGImageLocation: 'assets/images/img-2.png',
+        slogan: 'Say No to Skin Diseases!',
         content:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry'),
+            'Check your skin on the smartphone and get instant results within 1 minute. Take a Photo'),
     FakeIntroContent(
-        localSVGImageLocation: 'assests/images/img-3.png',
-        slogan: 'Buy, think & grow',
+        localSVGImageLocation: 'assets/images/img-3.png',
+        slogan: 'Artificial Intelligence',
         content:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry'),
+            'Upload you photo to the Artificial Intelligence. The system will analyze it and give you a risk assessment.'),
   ];
 }

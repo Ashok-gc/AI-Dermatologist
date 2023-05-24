@@ -16,4 +16,7 @@ class AppAssetImages {
   static const String ukSVGLogoColor = 'assets/icons/color/uk.svg';
   static const String arrowDownSVGLogoLine = 'assets/icons/line/arrowdown.svg';
   static const String phoneSVGLogoLine = 'assets/icons/line/mobile.svg';
+  static const String profileSVGLogoLine = 'assets/icons/line/profile.svg';
+  static const String calenderSVGLogoLine = 'assets/icons/line/calendar.svg';
+
 }

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../utils/constants/app_colors.dart';
-import '../utils/constants/app_gaps.dart';
-import '../utils/constants/app_images.dart';
-import '../utils/constants/app_page_names.dart';
-import '../widgets/core_widgets.dart';
+import '../../utils/constants/app_colors.dart';
+import '../../utils/constants/app_gaps.dart';
+import '../../utils/constants/app_images.dart';
+import '../../utils/constants/app_page_names.dart';
+import '../../widgets/core_widgets.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);

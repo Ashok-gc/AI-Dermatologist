@@ -2,10 +2,11 @@
 import 'package:ai_dermatologist/screens/password_recovery_screens/password_recovery_enter_email_screen.dart';
 import 'package:ai_dermatologist/screens/password_recovery_screens/password_recovery_select_screen.dart';
 import 'package:ai_dermatologist/screens/password_recovery_screens/password_reset_link_sent_sucess_screen.dart';
-import 'package:ai_dermatologist/screens/signin_screen.dart';
+import 'package:ai_dermatologist/screens/sigin_screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/intro_screen.dart';
+import '../screens/signup_screen/signup_screen.dart';
 import '../screens/splash_screen.dart';
 import 'constants/app_page_names.dart';
 
@@ -22,7 +23,7 @@ class AppRouteGenerator {
       case AppPageNames.signInScreen:
         return MaterialPageRoute(builder: (_) => const SignInScreen());
       case AppPageNames.signUpScreen:
-        return MaterialPageRoute(builder: (_) => const SignInScreen());
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppPageNames.passwordRecoverySelectScreen:
         return MaterialPageRoute(builder: (_) => const PasswordRecoverySelectScreen());
       case AppPageNames.resetPasswordEmailScreen:

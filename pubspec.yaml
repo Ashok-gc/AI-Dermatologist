@@ -35,6 +35,20 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # For custom icons
+  flutter_svg: ^1.1.6
+  # For right slide to show delete message inside some list widget
+  flutter_slidable: ^2.0.0
+  # For pin input fields
+  pinput: ^2.2.11
+  # For page indicator
+  smooth_page_indicator: ^1.0.0+2
+  # For custom toggle switch
+  flutter_switch: ^0.3.2
+  # For dotted border
+  dotted_border: ^2.0.0+2
+  # For persistent bottom sliding up panel
+  sliding_up_panel: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:

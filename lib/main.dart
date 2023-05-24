@@ -1,23 +1,26 @@
-import 'package:ai_dermatologist/screens/splashscreen.dart';
+
+import 'package:ai_dermatologist/utils/app_routes.dart';
+import 'package:ai_dermatologist/utils/constants/app_page_names.dart';
+import 'package:ai_dermatologist/utils/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const AiDermatologist());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class AiDermatologist extends StatelessWidget {
+  const AiDermatologist({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // This widget is the root of this app.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Ai Dermatologist',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SplashScreen(),
+      onGenerateRoute: AppRouteGenerator.generateRoute,
+      initialRoute: AppPageNames.rootScreen,
+
+      theme: AppThemeData.appThemeData,
     );
   }
 }

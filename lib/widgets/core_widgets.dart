@@ -26,9 +26,11 @@ class CustomScaffoldBodyWidget extends StatelessWidget {
 class CustomScaffoldBottomBarWidget extends StatelessWidget {
   final Widget child;
   final Color? backgroundColor;
+  final Border? border;
+
   final BorderRadius? borderRadius;
   const CustomScaffoldBottomBarWidget(
-      {Key? key, required this.child, this.backgroundColor, this.borderRadius})
+      {Key? key, required this.child, this.backgroundColor, this.borderRadius, this.border})
       : super(key: key);
 
   @override
@@ -38,6 +40,7 @@ class CustomScaffoldBottomBarWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: borderRadius,
+        border: border,
       ),
       child: child,
     );
@@ -53,7 +56,7 @@ class CustomStretchedTextButtonWidget extends StatelessWidget {
   const CustomStretchedTextButtonWidget({
     Key? key,
     this.onTap,
-    required this.buttonText,
+    required this.buttonText, 
   }) : super(key: key);
 
   @override
@@ -356,9 +359,14 @@ class CustomTextFormField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Label text
-          Text(labelText!,
-              style:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+          Text(
+            labelText!,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: AppColors.primaryColor, // Set the desired text color here
+            ),
+          ),
           AppGaps.hGap8,
           // Text field
           hasShadow
@@ -676,6 +684,38 @@ class HighlightAndDetailTextWidget extends StatelessWidget {
     );
   }
 }
+
+class HighlightAndDetailTextWidget2 extends StatelessWidget {
+  final String slogan;
+  final String subtitle;
+  final bool isSpaceShorter;
+  const HighlightAndDetailTextWidget2({
+    Key? key,
+    required this.slogan,
+    required this.subtitle,
+    this.isSpaceShorter = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(slogan,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                color: AppColors.black, overflow: TextOverflow.clip)),
+        isSpaceShorter ? AppGaps.hGap8 : AppGaps.hGap10,
+        Text(subtitle,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: AppColors.black, overflow: TextOverflow.clip)),
+      ],
+    );
+  }
+}
+
 
 /// Wishlist screen grid item button widget
 class WishlistItemButtonWidget extends StatelessWidget {

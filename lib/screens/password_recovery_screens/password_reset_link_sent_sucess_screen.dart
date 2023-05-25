@@ -29,7 +29,7 @@ class PasswordResentLinkSentSucessScreen extends StatelessWidget {
                 AppGaps.hGap56,
                 const HighlightAndDetailTextWidget(
                     isSpaceShorter: true,
-                    slogan: 'Great! Email Link Sent',
+                    slogan: 'Great! Password Reset Link Sent',
                     subtitle:
                         'Don\'t worry! We\'ll let you know if there is any '
                         'problem with your account'),

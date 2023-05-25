@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
     Navigator.pushNamedAndRemoveUntil(
-        context, AppPageNames.signupPage, (_) => false);
+        context, AppPageNames.introScreen, (_) => false);
   }
   @override
   void initState() {

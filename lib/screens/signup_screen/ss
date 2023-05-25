@@ -8,14 +8,14 @@ import '../../utils/constants/app_images.dart';
 import '../../utils/constants/app_page_names.dart';
 import '../../widgets/core_widgets.dart';
 
-class SignInScreen1 extends StatefulWidget {
-  const SignInScreen1({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignInScreen1> createState() => _SignInScreen1State();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInScreen1State extends State<SignInScreen1> {
+class _SignInScreenState extends State<SignInScreen> {
   /// Toggle value of remember me
   bool _toggleRememberLogin = false;
 
@@ -45,7 +45,7 @@ class _SignInScreen1State extends State<SignInScreen1> {
                     subtitle: 'Hello there, sign in to continue'),
                 AppGaps.hGap24,
                 /* <---- Email text field ----> */
-                CustomTextFormField(
+                CustomTextFormField2(
                   labelText: 'Email address',
                   hintText: 'contact@gmail.com',
                   prefixIcon:
@@ -53,7 +53,7 @@ class _SignInScreen1State extends State<SignInScreen1> {
                 ),
                 AppGaps.hGap24,
                 /* <---- Password text field ----> */
-                CustomTextFormField(
+                CustomTextFormField2(
                   hasShadow: false,
                   isPasswordTextField: _toggleHidePassword,
                   labelText: 'Password',

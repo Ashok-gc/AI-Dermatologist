@@ -25,8 +25,8 @@ class IntroContentWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(localImageLocation, height: 240),
-          AppGaps.hGap25,
+          Image.asset(localImageLocation, height: 320),
+          AppGaps.hGap8,
           HighlightAndDetailTextWidget(slogan: slogan, subtitle: subtitle),
         ],
       ),

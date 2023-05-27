@@ -48,7 +48,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 356,
+                      height: 426,
                       /* <---- Intro screens ----> */
                       child: PageView.builder(
                         controller: _pageController,
@@ -68,7 +68,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         },
                       ),
                     ),
-                    AppGaps.hGap56,
+                    AppGaps.hGap65,
                     SizedBox(
                       /* <---- Current page dot indicator widget ----> */
                       child: SmoothPageIndicator(

@@ -1,4 +1,5 @@
 
+import 'package:ai_dermatologist/screens/home_navigator_screens/Detection_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/constants/app_constants.dart';
@@ -38,18 +39,21 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
   /* <-------- Select current tab screen --------> */
   void _setCurrentTab() {
     const int homeScreenIndex = 0;
-    const int cartScreenIndex = 1;
-    const int wishlistScreenIndex = 2;
-    const int ordersScreenIndex = 3;
+    const int mapScreenIndex = 1;
+    const int detectionScreenIndex = 2;
+    const int historyScreenIndex = 3;
     const int accountScreenIndex = 4;
     switch (_currentPageIndex) {
       case homeScreenIndex:
         _nestedScreenWidget = const HomeScreen();
         break;
-      case cartScreenIndex:
+      case mapScreenIndex:
         _nestedScreenWidget = const MapScreen();
         break;
-      case ordersScreenIndex:
+      case detectionScreenIndex:
+        _nestedScreenWidget = const DetectionScreen();
+        break;
+      case historyScreenIndex:
         _nestedScreenWidget = const MyHistoryScreen();
         break;
       case accountScreenIndex:

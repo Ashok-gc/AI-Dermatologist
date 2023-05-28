@@ -345,7 +345,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         onTap: () {
                           // Goto home screen
                           Navigator.pushNamed(
-                              context, AppPageNames.homeScreen);
+                              context, AppPageNames.homeNavigatorScreen);
                         }),
                     AppGaps.hGap24,
                     Center(

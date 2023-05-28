@@ -1,4 +1,5 @@
 
+import 'package:ai_dermatologist/screens/home_navigator_screen.dart';
 import 'package:ai_dermatologist/screens/home_navigator_screens/home_screen.dart';
 import 'package:ai_dermatologist/screens/home_navigator_screens/map_screen.dart';
 import 'package:ai_dermatologist/screens/home_navigator_screens/my_account_screen.dart';
@@ -34,6 +35,8 @@ class AppRouteGenerator {
         return MaterialPageRoute(builder: (_) => const ResetPasswordEmailScreen());
       case AppPageNames.passwordResentLinkSentSucessScreen:
         return MaterialPageRoute(builder: (_) => const PasswordResentLinkSentSucessScreen());
+      case AppPageNames.homeNavigatorScreen:
+        return MaterialPageRoute(builder: (_) => const HomeNavigatorScreen());
       case AppPageNames.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case AppPageNames.mapScreen:

@@ -11,5 +11,6 @@ class AppPageNames {
   static const String mapScreen = '/map';
   static const String myHistoryScreen = '/my-history';
   static const String myAccountScreen = '/my-account';
-  
+  static const String homeNavigatorScreen = '/home-navigator';
+
 }

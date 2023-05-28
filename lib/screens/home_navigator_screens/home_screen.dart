@@ -22,6 +22,12 @@ class HomeScreen extends StatelessWidget {
 
       ),
 
+      
+
+      //text
+      /* <-------- Content --------> */
+
+
 
     );
   }

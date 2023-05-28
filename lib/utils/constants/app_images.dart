@@ -22,6 +22,8 @@ class AppAssetImages {
   static const String homeSVGLogoLine = 'assets/icons/line/home.svg';
   static const String heartSVGLogoLine = 'assets/icons/line/heart.svg';
   static const String cartSVGLogoLine = 'assets/icons/line/cart.svg';
+  static const String cameraSVGLogoLine = 'assets/icons/solid/camera.svg';
+  static const String mapSVGLogoLine = 'assets/icons/line/map.svg';
 
 
 

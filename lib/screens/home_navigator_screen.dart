@@ -98,28 +98,25 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
               width: 100,
               inactiveColor: AppColors.bodyTextColor,
             ),
-            /* <---- 'Cart' button ----> */
+            /* <---- 'Map' button ----> */
             CustomBottomNavigationBarItem(
-              svgAssetIconName: AppAssetImages.cartSVGLogoLine,
-              labelText: 'Cart',
-              badgeNumber: 4,
+              svgAssetIconName: AppAssetImages.mapSVGLogoLine,
+              labelText: 'Map',
               width: 90,
               inactiveColor: AppColors.bodyTextColor,
             ),
-            /* <---- 'Wishlist' button ----> */
+            /* <---- 'Detection' button ----> */
             CustomBottomNavigationBarItem(
-              svgAssetIconName: AppAssetImages.heartSVGLogoLine,
-              labelText: 'Wishlist',
+              svgAssetIconName: AppAssetImages.cameraSVGLogoLine,
+              labelText: 'Detection',
               width: 110,
-              badgeNumber: 4,
               inactiveColor: AppColors.bodyTextColor,
             ),
-            /* <---- 'My Orders' button ----> */
+            /* <---- 'My History' button ----> */
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.taskSVGLogoLine,
-              labelText: 'My Orders',
+              labelText: 'My History',
               width: 120,
-              badgeNumber: 9,
               inactiveColor: AppColors.bodyTextColor,
             ),
             /* <---- 'Account' button ----> */

@@ -1,21 +1,21 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../models/fake_data.dart';
 import '../../utils/constants/app_colors.dart';
 import '../../utils/constants/app_gaps.dart';
-import '../../utils/constants/app_images.dart';
-import '../../utils/constants/app_page_names.dart';
 import '../../widgets/core_widgets.dart';
 
-class MyAccountScreen extends StatefulWidget {
-  const MyAccountScreen({Key? key}) : super(key: key);
+class MyHistoryScreen extends StatefulWidget {
+  const MyHistoryScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyAccountScreen> createState() => _MyAccountScreenState();
+  State<MyHistoryScreen> createState() => _MyHistoryScreenState();
 }
 
-class _MyAccountScreenState extends State<MyAccountScreen> {
+class _MyHistoryScreenState extends State<MyHistoryScreen> {
+  /// Currently selected tab index
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +23,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
       appBar: CoreWidgets.appBarWidget(
           screenContext: context,
           hasBackButton: false,
-          titleWidget: const Text('My account')),
+          titleWidget: const Text('My orders')),
       /* <-------- Content --------> */
-      
+
     );
   }
 }

@@ -18,5 +18,11 @@ class AppAssetImages {
   static const String phoneSVGLogoLine = 'assets/icons/line/mobile.svg';
   static const String profileSVGLogoLine = 'assets/icons/line/profile.svg';
   static const String calenderSVGLogoLine = 'assets/icons/line/calendar.svg';
+  static const String taskSVGLogoLine = 'assets/icons/line/tasksquare.svg';
+  static const String homeSVGLogoLine = 'assets/icons/line/home.svg';
+  static const String heartSVGLogoLine = 'assets/icons/line/heart.svg';
+  static const String cartSVGLogoLine = 'assets/icons/line/cart.svg';
+
+
 
 }

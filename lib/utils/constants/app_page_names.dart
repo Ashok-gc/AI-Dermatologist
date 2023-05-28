@@ -8,4 +8,8 @@ class AppPageNames {
   static const String resetPasswordEmailScreen = '/password-recovery-send';
   static const String passwordResentLinkSentSucessScreen = '/password-recovery-sent';
   static const String homeScreen = '/home';
+  static const String mapScreen = '/map';
+  static const String myHistoryScreen = '/my-history';
+  static const String myAccountScreen = '/my-account';
+  
 }

@@ -1,4 +1,8 @@
 
+import 'package:ai_dermatologist/screens/home_navigator_screens/home_screen.dart';
+import 'package:ai_dermatologist/screens/home_navigator_screens/map_screen.dart';
+import 'package:ai_dermatologist/screens/home_navigator_screens/my_account_screen.dart';
+import 'package:ai_dermatologist/screens/home_navigator_screens/my_history_screen.dart';
 import 'package:ai_dermatologist/screens/password_recovery_screens/password_recovery_enter_email_screen.dart';
 import 'package:ai_dermatologist/screens/password_recovery_screens/password_recovery_select_screen.dart';
 import 'package:ai_dermatologist/screens/password_recovery_screens/password_reset_link_sent_sucess_screen.dart';
@@ -31,7 +35,13 @@ class AppRouteGenerator {
       case AppPageNames.passwordResentLinkSentSucessScreen:
         return MaterialPageRoute(builder: (_) => const PasswordResentLinkSentSucessScreen());
       case AppPageNames.homeScreen:
-        return MaterialPageRoute(builder: (_) => const SignInScreen());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case AppPageNames.mapScreen:
+        return MaterialPageRoute(builder: (_) => const MapScreen());    
+      case AppPageNames.myAccountScreen:
+        return MaterialPageRoute(builder: (_) => const MyAccountScreen());  
+      case AppPageNames.myHistoryScreen:
+        return MaterialPageRoute(builder: (_) => const MyHistoryScreen());
       default:
         // Open this page if wrong route address used
         return MaterialPageRoute(

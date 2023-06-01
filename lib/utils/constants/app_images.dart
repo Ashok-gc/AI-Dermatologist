@@ -24,7 +24,14 @@ class AppAssetImages {
   static const String cartSVGLogoLine = 'assets/icons/line/cart.svg';
   static const String cameraSVGLogoLine = 'assets/icons/solid/camera.svg';
   static const String mapSVGLogoLine = 'assets/icons/line/map.svg';
-
+  static const String logoutSVGLogoDualTone = 'assets/icons/dualtone/logout.svg';
+  static const String settingSVGLogoDualTone = 'assets/icons/dualtone/setting.svg';
+  static const String sendSVGLogoDualTone = 'assets/icons/dualtone/send.svg';
+  static const String bookmarkSVGLogoDualTone = 'assets/icons/dualtone/bookmark.svg';
+  static const String walletSVGLogoDualTone = 'assets/icons/dualtone/wallet.svg';
+  static const String locationSVGLogoDualTone = 'assets/icons/dualtone/location.svg';
+  static const String editSVGLogoSolid = 'assets/icons/solid/pen.svg';
+  static const String myAccountProfilePicture = 'assets/images/demo_images/my_account_profile_picture.png';
 
 
 }

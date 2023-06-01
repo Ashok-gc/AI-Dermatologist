@@ -12,11 +12,9 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   /// Width of small screen size
-  final double _smallScreenSizeWidth = 350;
   @override
   Widget build(BuildContext context) {
     /// Get screen size
-    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       /* <-------- Appbar --------> */
       appBar: CoreWidgets.appBarWidget(

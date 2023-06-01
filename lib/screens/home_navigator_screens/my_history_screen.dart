@@ -1,9 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../../models/fake_data.dart';
-import '../../utils/constants/app_colors.dart';
-import '../../utils/constants/app_gaps.dart';
 import '../../widgets/core_widgets.dart';
 
 class MyHistoryScreen extends StatefulWidget {

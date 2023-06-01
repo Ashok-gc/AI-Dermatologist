@@ -82,19 +82,17 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                     ),
                     AppGaps.hGap18,
                     /* <---- Profile name ----> */
-                    Text(
-                      'Samantha smith',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(),
-                    ),
+                    const Text(
+                      'Srinkhala Baniya',
+                        style: TextStyle(color: AppColors.primaryColor, fontSize: 18, fontWeight: FontWeight.w600)),
                     AppGaps.hGap8,
                     /* <---- Profile phone number ----> */
-                    const Text('+1 283 390 390',
-                        style: TextStyle(color: AppColors.bodyTextColor)),
+                    const Text('+977 9860914588',
+                        style: TextStyle(color: AppColors.primaryColor)),
                     AppGaps.hGap5,
                     /* <---- Profile email address ----> */
                     const Text('samanthasmith@gmail.com',
-                        style: TextStyle(color: AppColors.bodyTextColor)),
+                        style: TextStyle(color: AppColors.primaryColor)),
                     AppGaps.hGap32,
                     /* <---- Horizontal dashed line ----> */
                     CustomHorizontalDashedLineWidget(
@@ -102,23 +100,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                     AppGaps.hGap32,
                     /* <---- 'Save address' list tile button ----> */
                     CustomListTileMyAccountWidget(
-                        text: 'Saved address',
+                        text: 'Saved address' ,
                         icon: SvgPicture.asset(
                           AppAssetImages.locationSVGLogoDualTone,
-                          color: AppColors.primaryColor,
-                          height: 24,
-                          width: 24,
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(
-                              context, AppPageNames.myAccountScreen);
-                        }),
-                    AppGaps.hGap24,
-                    /* <---- 'My wallet' list tile button ----> */
-                    CustomListTileMyAccountWidget(
-                        text: 'My wallet',
-                        icon: SvgPicture.asset(
-                          AppAssetImages.walletSVGLogoDualTone,
                           color: AppColors.primaryColor,
                           height: 24,
                           width: 24,
@@ -139,9 +123,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                         ),
                         onTap: () {}),
                     AppGaps.hGap24,
-                    /* <---- 'Help & support' list tile button ----> */
+                    /* <---- 'Frequently Asked Questions' list tile button ----> */
                     CustomListTileMyAccountWidget(
-                        text: 'Help & support',
+                        text: 'Frequently Asked Questions',
                         icon: SvgPicture.asset(
                           AppAssetImages.sendSVGLogoDualTone,
                           color: AppColors.primaryColor,
@@ -161,7 +145,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                         ),
                         onTap: () {
                           Navigator.pushNamed(
-                              context, AppPageNames.myAccountScreen);
+                              context, AppPageNames.settingScreen);
                         }),
                     AppGaps.hGap24,
                     /* <---- 'Sign out' list tile button ----> */

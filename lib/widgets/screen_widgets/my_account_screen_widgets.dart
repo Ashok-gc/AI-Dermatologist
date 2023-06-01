@@ -33,7 +33,7 @@ class CustomListTileMyAccountWidget extends StatelessWidget {
             AppGaps.wGap16,
             Expanded(
               child: Text(text,
-                  style: const TextStyle(fontWeight: FontWeight.w600)),
+                  style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.primaryColor)),
             ),
             Transform.scale(
                 scaleX: -1,

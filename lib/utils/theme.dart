@@ -26,7 +26,7 @@ class AppThemeData {
             fontWeight: FontWeight.bold),
         headlineMedium: TextStyle(
             fontSize: 20,
-            color: AppColors.white,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.bold),
         labelLarge: TextStyle(
             fontSize: 18,

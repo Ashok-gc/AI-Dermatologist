@@ -12,6 +12,7 @@ import 'package:ai_dermatologist/screens/Profile/settings_screen.dart';
 import 'package:ai_dermatologist/screens/sigin_screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/Profile/change_password_screen.dart';
 import '../screens/intro_screen.dart';
 import '../screens/signup_screen/signup_screen.dart';
 import '../screens/splash_screen.dart';
@@ -51,6 +52,9 @@ class AppRouteGenerator {
         return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case AppPageNames.editProfileScreen:
         return MaterialPageRoute(builder: (_) => const EditMyAccountScreen());
+      case AppPageNames.createNewPasswordScreen:
+        return MaterialPageRoute(builder: (_) => const CreateNewPasswordScreen());
+      
       default:
         // Open this page if wrong route address used
         return MaterialPageRoute(

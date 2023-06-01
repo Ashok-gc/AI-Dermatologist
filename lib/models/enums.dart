@@ -1,5 +1,3 @@
-/* <-------- Enums for various screens --------> */
-
 enum ResetPasswordSelectedChoice {
   none,
   mail,

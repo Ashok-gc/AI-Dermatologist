@@ -114,7 +114,7 @@ class PasswordStrongLevelWidget extends StatelessWidget {
         AppGaps.wGap10,
         Text(
           _getPasswordStrongLevelText(),
-          style: const TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.black),
         ),
       ],
     );

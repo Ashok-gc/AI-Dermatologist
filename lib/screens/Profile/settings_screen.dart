@@ -67,7 +67,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Text('Security', style: Theme.of(context).textTheme.headlineMedium),
               AppGaps.hGap16,
               /* <---- 'Change Password' List Tile ----> */
-              SettingsListTileWidget(titleText: 'Change Password', onTap: () {}),
+              SettingsListTileWidget(titleText: 'Change Password', onTap: () {
+                // Tapping on it goes to change password screen
+                Navigator.pushNamed(context, AppPageNames.createNewPasswordScreen);
+              }),
               // Bottom extra spaces
               AppGaps.hGap30,
             ],

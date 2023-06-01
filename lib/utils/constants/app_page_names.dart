@@ -13,4 +13,5 @@ class AppPageNames {
   static const String myAccountScreen = '/my-account';
   static const String homeNavigatorScreen = '/home-navigator';
   static const String settingScreen = '/setting';
+  static const String editProfileScreen = '/edit-profile';
 }

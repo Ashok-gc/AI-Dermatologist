@@ -32,6 +32,7 @@ class AppAssetImages {
   static const String locationSVGLogoDualTone = 'assets/icons/dualtone/location.svg';
   static const String editSVGLogoSolid = 'assets/icons/solid/pen.svg';
   static const String myAccountProfilePicture = 'assets/images/demo_images/my_account_profile_picture.png';
+  static const String cameraSVGLogoSolid = 'assets/icons/solid/camera.svg';
 
 
 }

@@ -74,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               textInputType: TextInputType.text,
                             ),
                           ),
-                          AppGaps.wGap16,
+                          AppGaps.wGap10,
                           Expanded(
                             /* <---- CVV text field ----> */
                             child: CustomTextFormField(
@@ -101,7 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               textInputType: TextInputType.datetime,
                             ),
                           ),
-                          AppGaps.wGap16,
+                          AppGaps.wGap10,
                           Expanded(
                             /* <---- CVV text field ----> */
                             child: CustomTextFormField(

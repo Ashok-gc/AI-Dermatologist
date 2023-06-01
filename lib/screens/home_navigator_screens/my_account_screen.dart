@@ -57,7 +57,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                               onPressed: () {
                                 // Tapping on it goes to edit my account screen
                                 Navigator.pushNamed(
-                                    context, AppPageNames.myAccountScreen);
+                                    context, AppPageNames.editProfileScreen);
                               },
                               padding: EdgeInsets.zero,
                               constraints: const BoxConstraints(
@@ -88,11 +88,11 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                     AppGaps.hGap8,
                     /* <---- Profile phone number ----> */
                     const Text('+977 9860914588',
-                        style: TextStyle(color: AppColors.primaryColor)),
+                        style: TextStyle(color: AppColors.bodyTextColor)),
                     AppGaps.hGap5,
                     /* <---- Profile email address ----> */
-                    const Text('samanthasmith@gmail.com',
-                        style: TextStyle(color: AppColors.primaryColor)),
+                    const Text('sisanbaniya@gmail.com@gmail.com',
+                        style: TextStyle(color: AppColors.bodyTextColor)),
                     AppGaps.hGap32,
                     /* <---- Horizontal dashed line ----> */
                     CustomHorizontalDashedLineWidget(
@@ -100,7 +100,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                     AppGaps.hGap32,
                     /* <---- 'Save address' list tile button ----> */
                     CustomListTileMyAccountWidget(
-                        text: 'Saved address' ,
+                        text: 'Nearby Hospitals',
                         icon: SvgPicture.asset(
                           AppAssetImages.locationSVGLogoDualTone,
                           color: AppColors.primaryColor,

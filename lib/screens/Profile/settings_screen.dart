@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../utils/constants/app_constants.dart';
-import '../widgets/core_widgets.dart';
-import '../widgets/screen_widgets/settings_screen_widgets.dart';
+import '../../utils/constants/app_constants.dart';
+import '../../utils/constants/app_page_names.dart';
+import '../../widgets/core_widgets.dart';
+import '../../widgets/screen_widgets/settings_screen_widgets.dart';
 // import 'package:flutter_switch/flutter_switch.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -36,7 +37,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               /* <---- 'Edit Profile' List Tile ----> */
               SettingsListTileWidget(
                   titleText: 'Edit Profile',
-                  onTap: () {}),
+                  onTap: () {
+                    // Tapping on it goes to edit my account screen
+                    Navigator.pushNamed(
+                        context, AppPageNames.editProfileScreen);
+                  }),
               /* <---- Section space ----> */
               AppGaps.hGap32,
               Text('Application Setting',

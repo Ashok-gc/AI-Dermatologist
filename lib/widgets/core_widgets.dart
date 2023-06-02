@@ -21,6 +21,21 @@ class CustomScaffoldBodyWidget extends StatelessWidget {
     );
   }
 }
+class CustomScaffoldBodyWidget2 extends StatelessWidget {
+  final Widget child;
+  const CustomScaffoldBodyWidget2({Key? key, required this.child})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:
+          const EdgeInsets.only(left: 1.0, right: 1.0, top: 1.0, bottom: 0),
+      child: child,
+      
+    );
+  }
+}
 
 /// Custom padded bottom bar widget for scaffold
 class CustomScaffoldBottomBarWidget extends StatelessWidget {
@@ -791,7 +806,7 @@ class HighlightAndDetailTextWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
                 color: AppColors.white, overflow: TextOverflow.clip)),
-        isSpaceShorter ? AppGaps.hGap8 : AppGaps.hGap10,
+        isSpaceShorter ? AppGaps.hGap20 : AppGaps.hGap10,
         Text(subtitle,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(

@@ -312,10 +312,10 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                               width: 24,
                             ),
                             onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                AppPageNames.myAccountScreen,
-                              );
+                              // Navigator.pushNamed(
+                              //   context,
+                              //   AppPageNames.myAccountScreen,
+                              // );
                             },
                           ),
                           AppGaps.hGap24,

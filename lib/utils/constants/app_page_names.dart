@@ -9,10 +9,11 @@ class AppPageNames {
   static const String passwordResentLinkSentSucessScreen = '/password-recovery-sent';
   static const String homeScreen = '/home';
   static const String mapScreen = '/map';
-  static const String myHistoryScreen = '/my-history';
+  static const String historiesScreen = '/histories';
   static const String myAccountScreen = '/my-account';
   static const String homeNavigatorScreen = '/home-navigator';
   static const String settingScreen = '/setting';
   static const String editProfileScreen = '/edit-profile';
   static const String createNewPasswordScreen = '/create-new-password';
+  static const String myHistoriesScreen = '/my-history';
 }

@@ -7,7 +7,7 @@ import '../widgets/screen_widgets/home_navigator_screen_widgets.dart';
 import 'home_navigator_screens/map_screen.dart';
 import 'home_navigator_screens/home_screen.dart';
 import 'home_navigator_screens/my_account_screen.dart';
-import 'home_navigator_screens/my_history_screen.dart';
+import 'home_navigator_screens/history_screen.dart';
 
 
 class HomeNavigatorScreen extends StatefulWidget {
@@ -54,7 +54,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
         _nestedScreenWidget = const DetectionScreen();
         break;
       case historyScreenIndex:
-        _nestedScreenWidget = const MyHistoryScreen();
+        _nestedScreenWidget = const HistoryScreen();
         break;
       case accountScreenIndex:
         _nestedScreenWidget = const MyAccountScreen();

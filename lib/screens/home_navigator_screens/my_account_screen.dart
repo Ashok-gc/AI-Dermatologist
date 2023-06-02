@@ -321,14 +321,19 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                           AppGaps.hGap24,
                           /* <---- 'Terms & conditions' list tile button ----> */
                           CustomListTileMyAccountWidget(
-                            text: 'Terms & conditions',
+                            text: 'My Histories',
                             icon: SvgPicture.asset(
                               AppAssetImages.bookmarkSVGLogoDualTone,
                               color: AppColors.primaryColor,
                               height: 24,
                               width: 24,
                             ),
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppPageNames.myHistoriesScreen,
+                              // );
+                          );},
                           ),
                           AppGaps.hGap24,
                           /* <---- 'Frequently Asked Questions' list tile button ----> */

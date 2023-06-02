@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/core_widgets.dart';
 
-class MyHistoryScreen extends StatefulWidget {
-  const MyHistoryScreen({Key? key}) : super(key: key);
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyHistoryScreen> createState() => _MyHistoryScreenState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _MyHistoryScreenState extends State<MyHistoryScreen> {
+class _HistoryScreenState extends State<HistoryScreen> {
   /// Currently selected tab index
 
   @override

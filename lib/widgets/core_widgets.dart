@@ -37,6 +37,9 @@ class CustomScaffoldBodyWidget2 extends StatelessWidget {
   }
 }
 
+
+
+
 /// Custom padded bottom bar widget for scaffold
 class CustomScaffoldBottomBarWidget extends StatelessWidget {
   final Widget child;

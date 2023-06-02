@@ -373,7 +373,7 @@ class _CreateNewPasswordScreenState
                   padding: const EdgeInsets.symmetric(
                           horizontal: AppGaps.screenPaddingValue),
                       decoration: const BoxDecoration(
-                      color: AppColors.container,
+                      color: AppColors.container2,
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(20))),
                   child: Column(

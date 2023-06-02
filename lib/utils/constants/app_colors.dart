@@ -18,6 +18,8 @@ class AppColors {
   static const Color textColor1= Color(0xFFF4F5FA);
   static const Color white= Color(0xFFF4F5FA);
   static const Color container = Color(0xFFF2F5FC);
+  static const Color container2 = Color.fromARGB(238, 242, 245, 252);
+  static const Color container3 = Color.fromARGB(247, 242, 245, 252);
 
 
   /// Custom MaterialColor from Helper function

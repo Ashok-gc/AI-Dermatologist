@@ -20,9 +20,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.container3,
       /* <-------- Appbar --------> */
       appBar: CoreWidgets.appBarWidget(
-          screenContext: context, titleWidget: const Text('Settings')),
+          screenContext: context, titleWidget: const Text('Settings', style: TextStyle(color: AppColors.primaryColor)), hasBackButton: true,),
       /* <-------- Content --------> */
       body: CustomScaffoldBodyWidget(
         child: SingleChildScrollView(

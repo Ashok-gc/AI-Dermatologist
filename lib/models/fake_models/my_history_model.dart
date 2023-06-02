@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class FakeMyOrderModel {
+class FakeMyHistoryModel {
   String name;
   String price;
-  ImageProvider<Object> productImage;
+  ImageProvider<Object> diseaseImage;
   String dateText;
   String orderStatus;
-  FakeMyOrderModel({
+  FakeMyHistoryModel({
     required this.name,
     required this.price,
-    required this.productImage,
+    required this.diseaseImage,
     required this.dateText,
     required this.orderStatus,
   });

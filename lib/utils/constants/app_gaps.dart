@@ -35,6 +35,7 @@ class AppGaps {
   static const SizedBox hGap80 = SizedBox(height: 80);
   static const SizedBox hGap90 = SizedBox(height: 90);
   static const SizedBox hGap100 = SizedBox(height: 100);
+  static const SizedBox hGap500 = SizedBox(height: 500);
 
   // Width spaces
   // wGap3 = width/Horizontal Gap 2 pixel

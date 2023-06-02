@@ -24,11 +24,7 @@ class EditMyAccountScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Top extra spaces
-              AppGaps.hGap15,
-              /* <---- Profile picture, name, phone number, email address
-                       ----> */
+            children: [               
               Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -97,7 +93,7 @@ class EditMyAccountScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: AppGaps.screenPaddingValue),
                       decoration: const BoxDecoration(
-                      color: AppColors.container,
+                      color: AppColors.container2,
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(20))),
                       

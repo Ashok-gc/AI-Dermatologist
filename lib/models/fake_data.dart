@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'fake_models/intro_content_model.dart';
+import 'fake_models/my_history_model.dart';
 
 class FakeData {
   // Intro screens
@@ -18,5 +21,22 @@ class FakeData {
         slogan: 'Say No To Skin Disease',
         content:
             'Check you skin on the smartphone and get instant results within 1 minute.'),
+  ];
+
+  static List<FakeMyHistoryModel> myHistorys = [
+    FakeMyHistoryModel(
+        name: 'AJ504 Green Airpod',
+        price: '23.00',
+        diseaseImage:
+            Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
+        dateText: '26 Dec, 2021',
+        orderStatus: 'pending'),
+    FakeMyHistoryModel(
+        name: 'Havit Gamenote',
+        price: '23.00',
+        diseaseImage:
+            Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
+        dateText: '26 Dec, 2021',
+        orderStatus: 'delivered'),
   ];
 }

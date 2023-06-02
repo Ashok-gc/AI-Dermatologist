@@ -1,9 +1,8 @@
-
 // import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
+// import '../../models/fake_data.dart';
 // import '../../utils/constants/app_constants.dart';
 // import '../../widgets/core_widgets.dart';
+// import '../../widgets/screen_widgets/my_history_screen_widgets.dart';
 
 // class MyHistoryScreen extends StatefulWidget {
 //   const MyHistoryScreen({Key? key}) : super(key: key);
@@ -14,70 +13,50 @@
 
 // class _MyHistoryScreenState extends State<MyHistoryScreen> {
 //   @override
-//   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       backgroundColor: AppColors.primaryColor,
+
 //       /* <-------- Appbar --------> */
 //       appBar: CoreWidgets.appBarWidget(
 //           screenContext: context,
 //           hasBackButton: true,
-//           titleWidget: const Text('')),
+//           titleWidget: const Text('My History')),
 //       /* <-------- Content --------> */
 //       body: CustomScaffoldBodyWidget2(
-//         child: SingleChildScrollView(
+        
+//         child: Container(
+//           padding: const EdgeInsets.symmetric(
+//               horizontal: AppGaps.screenPaddingValue),
+//           decoration: const BoxDecoration(
+//               color: AppColors.container,
+//               borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
 //           child: Column(
-//             mainAxisSize: MainAxisSize.min,
+//             mainAxisSize: MainAxisSize.max,
 //             crossAxisAlignment: CrossAxisAlignment.start,
 //             children: [
-//               // Top extra spaces
-//               AppGaps.hGap15,
-//               /* <---- Profile picture, name, phone number, email address
-//                        ----> */
-//               Center(
-//                 child: Column(
-//                   mainAxisSize: MainAxisSize.min,
-//                   crossAxisAlignment: CrossAxisAlignment.center,
-//                   children: [
-//                     AppGaps.hGap18,
-//                     /* <---- Profile name ----> */
-//                     const Text('History / Front',
-//                         style: TextStyle(
-//                             color: AppColors.white,
-//                             fontSize: 20,
-//                             fontWeight: FontWeight.w600)),
-//                     AppGaps.hGap20,
-
-//                     /* <---- Edit your name ----> */
-//                     Container(
-//                       width: double.infinity,
-//                       // height: double.infinity,
-//                       padding: const EdgeInsets.symmetric(
-//                           horizontal: AppGaps.screenPaddingValue),
-//                       decoration: const BoxDecoration(
-//                       color: AppColors.container,
-//                           borderRadius:
-//                               BorderRadius.vertical(top: Radius.circular(20))),
-                      
-//                       child: Column(
-//                         children: [
-//                           AppGaps.hGap24,
-//                           /* <---- Edit your date of birth ----> */
-//                           CustomTextFormField(
-//                             labelText: 'Email address',
-//                             hintText: 'contact@gmail.com',
-//                             prefixIcon: SvgPicture.asset(
-//                                 AppAssetImages.messageSVGLogoLine),
-//                           ),
-//                           AppGaps.hGap50,
-//                         ],
-//                       ),
-//                     ),
-//                     // AppGaps.hGap30,
-//                     // Bottom extra spaces
-//                   ],
-//                 ),
-//               )
+//               AppGaps.hGap10,
+//               /* <---- Disease list ----> */
+//               Expanded(
+//                   child: ListView.separated(
+//                 padding: const EdgeInsets.only(top: 16, bottom: 30),
+//                 separatorBuilder: (context, index) => AppGaps.hGap16,
+//                 itemCount: FakeData.myHistorys.length,
+//                 itemBuilder: (context, index) {
+//                   /// Single order
+//                   final myDisease = FakeData.myHistorys[index];
+//                   return MyHistoryWidget(
+//                     onTap: () {
+//                       // Tapping on it goes to order status screen
+//                       // Navigator.pushNamed(
+//                       //     context, AppPageNames.orderStatusScreen);
+//                     },
+//                     diseaseName: myDisease.name,
+//                     diseaseImage: myDisease.diseaseImage,
+//                     dateText: myDisease.dateText,
+//                   );
+//                 },
+//               )),
 //             ],
 //           ),
 //         ),
@@ -85,12 +64,11 @@
 //     );
 //   }
 // }
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
+import '../../models/fake_data.dart';
 import '../../utils/constants/app_constants.dart';
 import '../../widgets/core_widgets.dart';
+import '../../widgets/screen_widgets/my_history_screen_widgets.dart';
 
 class MyHistoryScreen extends StatefulWidget {
   const MyHistoryScreen({Key? key}) : super(key: key);
@@ -101,74 +79,73 @@ class MyHistoryScreen extends StatefulWidget {
 
 class _MyHistoryScreenState extends State<MyHistoryScreen> {
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       /* <-------- Appbar --------> */
       appBar: CoreWidgets.appBarWidget(
-          screenContext: context,
-          hasBackButton: true,
-          titleWidget: const Text('')),
+        screenContext: context,
+        hasBackButton: true,
+        titleWidget: const Text(''),
+      ),
       /* <-------- Content --------> */
       body: CustomScaffoldBodyWidget2(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Top extra spaces
-              AppGaps.hGap15,
-              /* <---- Profile picture, name, phone number, email address
-                       ----> */
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AppGaps.hGap18,
-                    /* <---- Profile name ----> */
-                    const Text('History / Front',
-                        style: TextStyle(
-                            color: AppColors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600)),
-                    AppGaps.hGap20,
-
-                    /* <---- Edit your name ----> */
-                    Container(
-                      width: double.infinity,
-                      // height: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppGaps.screenPaddingValue),
-                      decoration: const BoxDecoration(
-                      color: AppColors.container,
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(20))),
-                      
-                      child: Column(
-                        children: [
-                          AppGaps.hGap24,
-                          /* <---- Edit your date of birth ----> */
-                          CustomTextFormField(
-                            labelText: 'Email address',
-                            hintText: 'contact@gmail.com',
-                            prefixIcon: SvgPicture.asset(
-                                AppAssetImages.messageSVGLogoLine),
-                          ),
-                          AppGaps.hGap50,
-                        ],
-                      ),
-                    ),
-                    // AppGaps.hGap30,
-                    // Bottom extra spaces
-                  ],
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppGaps.hGap20,
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: AppGaps.screenPaddingValue,
                 ),
-              )
-            ],
-          ),
+                child: Text(
+                  'History / Front',
+                  style: TextStyle(
+                    color: AppColors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+            AppGaps.hGap15,
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppGaps.screenPaddingValue,
+                ),
+                decoration: const BoxDecoration(
+                  color: AppColors.container2,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+                ),
+                child: ListView.separated(
+                  padding: const EdgeInsets.only(top: 30, bottom: 30),
+                  separatorBuilder: (context, index) => AppGaps.hGap16,
+                  itemCount: FakeData.myHistorys.length,
+                  itemBuilder: (context, index) {
+                    /// Single order
+                    final myDisease = FakeData.myHistorys[index];
+                    return MyHistoryWidget(
+                      onTap: () {
+                        // Tapping on it goes to order status screen
+                        // Navigator.pushNamed(
+                        //     context, AppPageNames.orderStatusScreen);
+                      },
+                      diseaseName: myDisease.name,
+                      diseaseImage: myDisease.diseaseImage,
+                      dateText: myDisease.dateText,
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+

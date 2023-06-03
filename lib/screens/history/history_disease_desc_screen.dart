@@ -141,6 +141,7 @@
 // }
 import 'package:flutter/material.dart';
 import '../../utils/constants/app_constants.dart';
+import '../../utils/constants/app_page_names.dart';
 import '../../widgets/core_widgets.dart';
 
 import '../../models/fake_data.dart';
@@ -203,8 +204,8 @@ class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
                     final myDisease = FakeData.diesaseDescription[index];
                     return MyDiseaseDescWidget(
                       onTap: () {
-                        // Navigator.pushNamed(
-                        //   context, AppPageNames.historyDiseaseDescScreen);
+                        Navigator.pushNamed(
+                          context, AppPageNames.diseaseDescScreen);
                       },
                       diseaseName: myDisease.diseasename,
                       diseaseImage: myDisease.diseaseImage,

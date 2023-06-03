@@ -34,5 +34,6 @@ class AppAssetImages {
   static const String myAccountProfilePicture = 'assets/images/demo_images/my_account_profile_picture.png';
   static const String cameraSVGLogoSolid = 'assets/icons/solid/camera.svg';
   static const String deleteSVGLogoSolid = 'assets/icons/line/delete.svg';
+  
 
 }

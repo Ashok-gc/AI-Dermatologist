@@ -10,5 +10,4 @@ class FakeMyHistoryModel {
     required this.price,
     required this.diseaseImage,
     required this.dateText,
-  });
-}
+  });}

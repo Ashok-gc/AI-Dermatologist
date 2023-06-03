@@ -16,4 +16,6 @@ class AppPageNames {
   static const String editProfileScreen = '/edit-profile';
   static const String createNewPasswordScreen = '/create-new-password';
   static const String myHistoriesScreen = '/my-history';
+  static const String historyDiseaseDescScreen = '/history-disease-desc';
+
 }

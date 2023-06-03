@@ -67,6 +67,7 @@
 import 'package:flutter/material.dart';
 import '../../models/fake_data.dart';
 import '../../utils/constants/app_constants.dart';
+import '../../utils/constants/app_page_names.dart';
 import '../../widgets/core_widgets.dart';
 import '../../widgets/screen_widgets/my_history_screen_widgets.dart';
 
@@ -130,9 +131,8 @@ class _MyHistoryScreenState extends State<MyHistoryScreen> {
                     final myDisease = FakeData.myHistorys[index];
                     return MyHistoryWidget(
                       onTap: () {
-                        // Tapping on it goes to order status screen
-                        // Navigator.pushNamed(
-                        //     context, AppPageNames.orderStatusScreen);
+                        Navigator.pushNamed(
+                            context, AppPageNames.historyDiseaseDescScreen);
                       },
                       diseaseName: myDisease.name,
                       diseaseImage: myDisease.diseaseImage,

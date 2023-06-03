@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'fake_models/intro_content_model.dart';
+import 'fake_models/my_disease_model.dart';
 import 'fake_models/my_history_model.dart';
 
 class FakeData {
@@ -36,5 +37,18 @@ class FakeData {
         diseaseImage:
             Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
         dateText: '26 Dec, 2021'),
+  ];
+
+
+    static List<FakeMyDiseaseModel> diesaseDescription = [
+    FakeMyDiseaseModel(
+        diseasename: 'Disease: Pre-Cancer: Seborrhea',
+        diseaseImage:
+            Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
+        dateText: '26 Dec, 2021',
+        riskassessment: 'Signs of a potentially dangerous neoplasm that belongs to the group of precancerous skin conditions. You need to contact a dermatologist or oncologist for additional diagnosis. Never self-medicate.',
+        result: '35% Precancerous Conditions',
+        precisediagnosis: 'After Biopsy, the diagnosis is confirmed.',
+        advice: 'Immediately consult a dermatologist'),
   ];
 }

@@ -14,7 +14,7 @@ class AppColors {
   static const Color lineShapeColor = Color(0xFFEBEDF9);
   static const Color shadeColor1 = Color(0xFFF4F5FA);
   static const Color shadeColor2 = Color(0xFFF7F7FB);
-  static const Color black = Color(0xFF1E1E1E);
+  static const Color black = Color.fromARGB(255, 0, 0, 0);
   static const Color textColor1= Color(0xFFF4F5FA);
   static const Color white= Color(0xFFF4F5FA);
   static const Color container = Color(0xFFF2F5FC);

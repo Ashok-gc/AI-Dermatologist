@@ -144,7 +144,7 @@ import '../../utils/constants/app_constants.dart';
 import '../../widgets/core_widgets.dart';
 
 import '../../models/fake_data.dart';
-import '../../utils/constants/app_page_names.dart';
+import '../../widgets/screen_widgets/alertdialogue_widgets.dart';
 import '../../widgets/screen_widgets/my_disease_desc_screen_widgets.dart';
 
 class HistoryDiseaseDescScreen extends StatefulWidget {
@@ -159,19 +159,16 @@ class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      /* <-------- Appbar --------> */
       appBar: CoreWidgets.appBarWidget(
         screenContext: context,
         hasBackButton: true,
         titleWidget: const Text(''),
       ),
-      /* <-------- Content --------> */
       body: CustomScaffoldBodyWidget2(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // AppGaps.hGap20,
             const Center(
               child: Padding(
                 padding: EdgeInsets.only(
@@ -203,12 +200,11 @@ class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
                   separatorBuilder: (context, index) => AppGaps.hGap16,
                   itemCount: FakeData.diesaseDescription.length,
                   itemBuilder: (context, index) {
-                    /// Single order
                     final myDisease = FakeData.diesaseDescription[index];
                     return MyDiseaseDescWidget(
                       onTap: () {
-                        Navigator.pushNamed(
-                            context, AppPageNames.historyDiseaseDescScreen);
+                        // Navigator.pushNamed(
+                        //   context, AppPageNames.historyDiseaseDescScreen);
                       },
                       diseaseName: myDisease.diseasename,
                       diseaseImage: myDisease.diseaseImage,
@@ -225,7 +221,63 @@ class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: CustomScaffoldBottomBarWidget(
+  backgroundColor: AppColors.container2,
+  child: CustomStretchedButtonWidget2(
+    onTap: () {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return CustomAlertDialog(
+            title: 'Confirmation',
+            message: 'Are you sure you want to delete the data?',
+            onDeletePressed: () {
+              // Add your delete logic here
+              Navigator.of(context).pop();
+            },
+            onCancelPressed: () {
+              Navigator.of(context).pop();
+            },
+          );
+        },
+      );
+    },
+    child: const Text('Delete'),
+  ),
+),
+
+      // bottomNavigationBar: CustomScaffoldBottomBarWidget(
+      //   backgroundColor: AppColors.container2,
+      //   child: CustomStretchedButtonWidget2(
+      //     onTap: () {
+      //       showDialog(
+      //         context: context,
+      //         builder: (BuildContext context) {
+      //           return AlertDialog(
+      //             title: const Text('Confirmation'),
+      //             content: const Text('Are you sure you want to delete?'),
+      //             actions: [
+      //               TextButton(
+      //                 onPressed: () {
+      //                   Navigator.of(context).pop();
+      //                 },
+      //                 child: const Text('Cancel'),
+      //               ),
+      //               TextButton(
+      //                 onPressed: () {
+      //                   // Add your delete logic here
+      //                   Navigator.of(context).pop();
+      //                 },
+      //                 child: const Text('Delete'),
+      //               ),
+      //             ],
+      //           );
+      //         },
+      //       );
+      //     },
+      //     child: const Text('Delete'),
+      //   ),
+      // ),
     );
   }
 }
-

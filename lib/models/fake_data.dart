@@ -42,7 +42,7 @@ class FakeData {
 
     static List<FakeMyDiseaseModel> diesaseDescription = [
     FakeMyDiseaseModel(
-        diseasename: 'Disease: Pre-Cancer: Seborrhea',
+        diseasename: 'Pre-Cancer: Seborrhea',
         diseaseImage:
             Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
         dateText: '26 Dec, 2021',

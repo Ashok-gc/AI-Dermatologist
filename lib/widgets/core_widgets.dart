@@ -196,6 +196,39 @@ class CustomStretchedButtonWidget extends StatelessWidget {
   }
 }
 
+class CustomStretchedButtonWidget2 extends StatelessWidget {
+  final Widget child;
+  final void Function()? onTap;
+  const CustomStretchedButtonWidget2({
+    Key? key,
+    this.onTap,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white, elevation: 10,
+                  shadowColor: AppColors.primaryColor.withOpacity(0.25),
+                  backgroundColor: onTap == null
+                      ? AppColors.white
+                      : AppColors.alertColor,
+                  minimumSize: const Size(30, 62),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(AppComponents.defaultBorderRadius))),
+              child: child),
+        ),
+      ],
+    );
+  }
+}
+
 
 
 

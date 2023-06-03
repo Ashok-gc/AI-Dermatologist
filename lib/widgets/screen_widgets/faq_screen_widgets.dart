@@ -140,13 +140,14 @@ class _FAQListTileWidgetState extends State<FAQListTileWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 15),
       child: CustomListTileWidget(
         onTap: () {
           setState(() {
             _isExpanded = !_isExpanded;
           });
         },
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -156,7 +157,6 @@ class _FAQListTileWidgetState extends State<FAQListTileWidget> {
                   child: Text(
                     widget.question,
                     style: const TextStyle(
-                      fontWeight: FontWeight.w600,
                       color: AppColors.primaryColor,
                     ),
                   ),
@@ -192,12 +192,9 @@ class _FAQListTileWidgetState extends State<FAQListTileWidget> {
             ),
             if (_isExpanded) ...[
               AppGaps.hGap10,
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  widget.answer,
-                  style: const TextStyle(color: AppColors.black),
-                ),
+              Text(
+                widget.answer,
+                style: const TextStyle(color: AppColors.black),
               ),
             ],
           ],
@@ -206,4 +203,3 @@ class _FAQListTileWidgetState extends State<FAQListTileWidget> {
     );
   }
 }
-

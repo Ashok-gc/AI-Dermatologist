@@ -188,7 +188,7 @@ class EditMyAccountScreen extends StatelessWidget {
       ),
       /* <-------- Bottom bar --------> */
       bottomNavigationBar: CustomScaffoldBottomBarWidget(
-        backgroundColor: AppColors.container,
+        backgroundColor: AppColors.container2,
           child: CustomStretchedButtonWidget(
         onTap: () {},
         child: const Text('Save changes'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'fake_models/faq_models.dart';
 import 'fake_models/intro_content_model.dart';
 import 'fake_models/my_disease_model.dart';
 import 'fake_models/my_history_model.dart';
@@ -28,27 +29,48 @@ class FakeData {
     FakeMyHistoryModel(
         name: 'Cancer',
         price: '23.00',
-        diseaseImage:
-            Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
+        diseaseImage: Image.asset(
+                'assets/images/demo_images/my_account_profile_picture.jpg')
+            .image,
         dateText: '26 Dec, 2021'),
     FakeMyHistoryModel(
         name: 'Cancer',
         price: '23.00',
-        diseaseImage:
-            Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
+        diseaseImage: Image.asset(
+                'assets/images/demo_images/my_account_profile_picture.jpg')
+            .image,
         dateText: '26 Dec, 2021'),
   ];
 
-
-    static List<FakeMyDiseaseModel> diesaseDescription = [
+  static List<FakeMyDiseaseModel> diesaseDescription = [
     FakeMyDiseaseModel(
         diseasename: 'Pre-Cancer: Seborrhea',
-        diseaseImage:
-            Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
+        diseaseImage: Image.asset(
+                'assets/images/demo_images/my_account_profile_picture.jpg')
+            .image,
         dateText: '26 Dec, 2021',
-        riskassessment: 'Signs of a potentially dangerous neoplasm that belongs to the group of precancerous skin conditions. You need to contact a dermatologist or oncologist for additional diagnosis. Never self-medicate.',
+        riskassessment:
+            'Signs of a potentially dangerous neoplasm that belongs to the group of precancerous skin conditions. You need to contact a dermatologist or oncologist for additional diagnosis. Never self-medicate.',
         result: '35% Precancerous Conditions',
         precisediagnosis: 'After Biopsy, the diagnosis is confirmed.',
         advice: 'Immediately consult a dermatologist'),
+  ];
+
+  static List<FakeFAQModel> fakeFAQs = [
+    FakeFAQModel(
+      questions: 'What is the most common type of cancer?',
+      answers: 'The most common type of cancer is skin cancer.',
+    ),
+    FakeFAQModel(
+      questions: 'What are the risk factors for developing cancer?',
+      answers:
+          'Risk factors for developing cancer include smoking, exposure to harmful chemicals, family history, and unhealthy lifestyle choices.',
+    ),
+    FakeFAQModel(
+      questions: 'How can I reduce my risk of getting cancer?',
+      answers:
+          'You can reduce your risk of getting cancer by maintaining a healthy lifestyle, avoiding tobacco and excessive alcohol consumption, eating a balanced diet, and protecting yourself from harmful sun exposure.',
+    ),
+    // Add more questions and answers as needed
   ];
 }

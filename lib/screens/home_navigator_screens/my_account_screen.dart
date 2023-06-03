@@ -202,8 +202,8 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
       body: CustomScaffoldBodyWidget2(
         child: SingleChildScrollView(
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
-            // crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Top extra spaces
               AppGaps.hGap15,
@@ -345,7 +345,12 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                               height: 24,
                               width: 24,
                             ),
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppPageNames.faqScreen,
+                              );
+                            },
                           ),
                           AppGaps.hGap24,
                           /* <---- 'Settings' list tile button ----> */

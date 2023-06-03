@@ -208,8 +208,8 @@ class DiseaseDescriptionScreen extends StatelessWidget {
             topicText: 'Treatment',
             topicDescriptionText: [
               'Treatment is not always necessary, as Seborrheic Keratosis is benign.',
-                  'Options include cryotherapy, curettage, electrocautery, and laser therapy.',
-                  'Surgical excision may be performed for larger or symptomatic lesions.'
+              'Options include cryotherapy, curettage, electrocautery, and laser therapy.',
+              'Surgical excision may be performed for larger or symptomatic lesions.'
             ]);
       default:
         return const StepperDisabledWidget(
@@ -217,7 +217,7 @@ class DiseaseDescriptionScreen extends StatelessWidget {
             topicDescriptionText: [
               'Treatment is not always necessary, as Seborrheic Keratosis is benign.'
                   'Options include cryotherapy, curettage, electrocautery, and laser therapy.',
-                  'Surgical excision may be performed for larger or symptomatic lesions.'
+              'Surgical excision may be performed for larger or symptomatic lesions.'
             ]);
     }
   }
@@ -300,20 +300,33 @@ class DiseaseDescriptionScreen extends StatelessWidget {
                       height: 100,
                       decoration: BoxDecoration(
                         color: Colors.orange,
-                        borderRadius: BorderRadius.circular(
-                            10), // Add your desired radius here
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: const Center(
-                        child: Text(
-                          'Cancer',
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.white,
-                          ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Seborrheic Keratosics',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.white,
+                              ),
+                            ),
+                            Text(
+                              '(ICD-10: L82.1)',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
+
                     AppGaps.hGap24,
                     /* <---- Order placed status ----> */
                     _title(descriptionStatus),

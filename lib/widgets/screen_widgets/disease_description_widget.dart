@@ -154,7 +154,7 @@ class StepperEnabledWidget extends StatelessWidget {
             )
           ],
         ),
-        AppGaps.hGap10,
+        AppGaps.hGap5,
         Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,

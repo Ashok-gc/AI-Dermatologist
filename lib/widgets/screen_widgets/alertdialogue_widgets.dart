@@ -57,7 +57,7 @@ class CustomAlertDialog extends StatelessWidget {
                   SizedBox(
                     width: 130, // Adjust the width as desired
                     child: TextButton(
-                      onPressed: onCancelPressed,
+                      onPressed: onDeletePressed,
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(14),
                         foregroundColor: Colors.white,
@@ -84,7 +84,7 @@ class CustomAlertDialog extends StatelessWidget {
                   SizedBox(
                     width: 130, // Adjust the width as desired
                     child: ElevatedButton(
-                      onPressed: onDeletePressed,
+                      onPressed: onCancelPressed,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(14), backgroundColor: onDeletePressed == null
                             ? Colors.transparent

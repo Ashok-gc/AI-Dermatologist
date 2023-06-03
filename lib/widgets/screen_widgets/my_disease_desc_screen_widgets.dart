@@ -362,7 +362,7 @@ class MyDiseaseDescWidget extends StatelessWidget {
                         text: result,
                         style: const TextStyle(
                           fontWeight: FontWeight.normal,
-                          color: Colors.black,
+                          color: AppColors.primaryColor,
                         ),
                       ),
                     ],

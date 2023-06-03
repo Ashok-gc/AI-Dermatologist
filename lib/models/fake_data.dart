@@ -25,18 +25,16 @@ class FakeData {
 
   static List<FakeMyHistoryModel> myHistorys = [
     FakeMyHistoryModel(
-        name: 'AJ504 Green Airpod',
+        name: 'Cancer',
         price: '23.00',
         diseaseImage:
             Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
-        dateText: '26 Dec, 2021',
-        orderStatus: 'pending'),
+        dateText: '26 Dec, 2021'),
     FakeMyHistoryModel(
-        name: 'Havit Gamenote',
+        name: 'Cancer',
         price: '23.00',
         diseaseImage:
             Image.asset('assets/images/demo_images/my_account_profile_picture.jpg').image,
-        dateText: '26 Dec, 2021',
-        orderStatus: 'delivered'),
+        dateText: '26 Dec, 2021'),
   ];
 }

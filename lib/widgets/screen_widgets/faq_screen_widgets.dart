@@ -28,7 +28,7 @@ class _FAQListTileWidgetState extends State<FAQListTileWidget> {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.circular(15), // Adjust the value as desired
+          borderRadius: BorderRadius.circular(13), // Adjust the value as desired
         ),
         child: CustomListTileWidget(
           onTap: () {

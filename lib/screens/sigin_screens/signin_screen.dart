@@ -213,15 +213,9 @@ class _SignInScreenState extends State<SignInScreen> {
       backgroundColor: AppColors.primaryColor,
       /* <-------- Empty appbar with back button --------> */
       // appBar: CoreWidgets.appBarWidget(screenContext: context),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            // Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primaryColor),
-        ),
+      appBar: CoreWidgets.appBarWidget(
+        screenContext: context,
+        hasBackButton: false,
       ),
       
       /* <-------- Content --------> */

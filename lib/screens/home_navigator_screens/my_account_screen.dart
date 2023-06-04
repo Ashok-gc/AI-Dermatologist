@@ -196,7 +196,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
       appBar: CoreWidgets.appBarWidget(
         screenContext: context,
         hasBackButton: false,
-        titleWidget: const Text('My account'),
+        titleWidget: const Text('My Account'),
       ),
       /* <-------- Content --------> */
       body: CustomScaffoldBodyWidget2(

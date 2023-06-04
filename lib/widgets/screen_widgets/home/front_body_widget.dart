@@ -15,8 +15,8 @@ class FrontBodyWidget extends StatelessWidget {
         children: [
           Image.asset('assets/front_image.png'), // Replace with your front body image
           Positioned(
-            top: 50, // Adjust the position according to your image
-            left: 80,
+            top: 5, // Adjust the position according to your image
+            left: 143,
             child: CircleButtonWidget(
               value: '1', // Replace with the value you want to display
               onPressed: () {
@@ -25,8 +25,8 @@ class FrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 10, // Adjust the position according to your image
-            left: 80,
+            top: 120, // Adjust the position according to your image
+            left: 143,
             child: CircleButtonWidget(
               value: '2', // Replace with the value you want to display
               onPressed: () {
@@ -35,8 +35,8 @@ class FrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 50, // Adjust the position according to your image
-            left: 80,
+            top: 160, // Adjust the position according to your image
+            left: 40,
             child: CircleButtonWidget(
               value: '3', // Replace with the value you want to display
               onPressed: () {
@@ -45,8 +45,8 @@ class FrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 50, // Adjust the position according to your image
-            left: 80,
+            top: 160, // Adjust the position according to your image
+            left: 258,
             child: CircleButtonWidget(
               value: '4', // Replace with the value you want to display
               onPressed: () {
@@ -55,7 +55,7 @@ class FrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 50, // Adjust the position according to your image
+            top: 350, // Adjust the position according to your image
             left: 80,
             child: CircleButtonWidget(
               value: '5', // Replace with the value you want to display
@@ -65,8 +65,8 @@ class FrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 50, // Adjust the position according to your image
-            left: 80,
+            top: 350, // Adjust the position according to your image
+            left: 205,
             child: CircleButtonWidget(
               value: '6', // Replace with the value you want to display
               onPressed: () {
@@ -85,28 +85,54 @@ class FrontBodyWidget extends StatelessWidget {
 class CircleButtonWidget extends StatelessWidget {
   final String value;
   final VoidCallback onPressed;
+  final bool isBig;
 
-  const CircleButtonWidget({super.key, 
+  const CircleButtonWidget({
+    Key? key,
     required this.value,
     required this.onPressed,
-  });
+    this.isBig = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final double outerCircleSize = isBig ? 50 : 30;
+    final double innerCircleSize = isBig ? 30 : 20;
+
     return GestureDetector(
       onTap: onPressed,
-      child: Container(
-        width: 40,
-        height: 40,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue,
-        ),
-        child: Center(
-          child: Text(
-            value,
-            style: const TextStyle(color: Colors.white),
-          ),
+      child: SizedBox(
+        width: outerCircleSize,
+        height: outerCircleSize,
+        child: Stack(
+          children: [
+            Container(
+              width: outerCircleSize,
+              height: outerCircleSize,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.5),
+              ),
+            ),
+            Positioned(
+              top: (outerCircleSize - innerCircleSize) / 2,
+              left: (outerCircleSize - innerCircleSize) / 2,
+              child: Container(
+                width: innerCircleSize,
+                height: innerCircleSize,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                child: Center(
+                  child: Text(
+                    value,
+                    style: const TextStyle(color: Colors.black, fontSize: 14),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

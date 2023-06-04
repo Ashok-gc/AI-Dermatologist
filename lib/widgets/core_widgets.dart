@@ -157,7 +157,49 @@ class CustomSmallTextButtonWidget extends StatelessWidget {
 }
 
 
+class CustomSmallTextButtonWidget2 extends StatelessWidget {
+  final String buttonText;
+  final void Function()? onTap;
 
+  const CustomSmallTextButtonWidget2({
+    Key? key,
+    this.onTap,
+    required this.buttonText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Center(
+            child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
+                foregroundColor: AppColors.primaryColor,
+                shadowColor: AppColors.primaryColor.withOpacity(0.25),
+                backgroundColor: onTap == null ? Colors.transparent : AppColors.white,
+                minimumSize: onTap == null ? const Size(80, 40) : const Size(220, 58), // Adjust the size values as desired
+                shape: RoundedRectangleBorder(
+                  borderRadius: const BorderRadius.all(AppComponents.default2BorderRadius),
+                  side: BorderSide(
+                    color: onTap == null ? AppColors.white.withOpacity(0.5) : AppColors.primaryColor,
+                    width: 2.0,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+              ),
+              child: Text(
+                buttonText,
+                style: onTap == null ? const TextStyle(color: AppColors.primaryColor) : null,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 
 
@@ -214,6 +256,38 @@ class CustomStretchedButtonWidget2 extends StatelessWidget {
               onPressed: onTap,
               style: TextButton.styleFrom(
                   foregroundColor: Colors.white, elevation: 10,
+                  shadowColor: AppColors.primaryColor.withOpacity(0.25),
+                  backgroundColor: onTap == null
+                      ? AppColors.white
+                      : AppColors.alertColor,
+                  minimumSize: const Size(30, 62),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(AppComponents.defaultBorderRadius))),
+              child: child),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomStretchedButtonWidget3 extends StatelessWidget {
+  final Widget child;
+  final void Function()? onTap;
+  const CustomStretchedButtonWidget3({
+    Key? key,
+    this.onTap,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
                   shadowColor: AppColors.primaryColor.withOpacity(0.25),
                   backgroundColor: onTap == null
                       ? AppColors.white

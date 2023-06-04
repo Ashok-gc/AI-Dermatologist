@@ -234,6 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.normal,
                               color: AppColors.black),
                         ),
+                        AppGaps.hGap10,
                         CustomStretchedButtonWidget3(
                           child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -262,8 +263,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-
-                  
                   AppGaps.hGap10,
                 ],
               ),

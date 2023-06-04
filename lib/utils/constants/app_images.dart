@@ -35,5 +35,7 @@ class AppAssetImages {
   static const String cameraSVGLogoSolid = 'assets/icons/solid/camera.svg';
   static const String deleteSVGLogoSolid = 'assets/icons/line/delete.svg';
   static const String downarrowSVGLogoSolid = 'assets/icons/line/arrowdown.svg';
+  static const String rightarrowSVG = 'assets/icons/line/arrowrightt.svg';
+  static const String filterSVG = 'assets/icons/line/filter.svg';
 
 }

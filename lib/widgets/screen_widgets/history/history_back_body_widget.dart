@@ -1,138 +1,166 @@
+import 'package:ai_dermatologist/utils/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
 class HistoryBackBodyWidget extends StatelessWidget {
-  const HistoryBackBodyWidget({super.key});
+  const HistoryBackBodyWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return GestureDetector(
-      onTap: () {
-        // Navigate to another page when the body is tapped
-        // Replace `AnotherPage()` with your desired page widget
-        // Navigator.push(context, MaterialPageRoute(builder: (_) => AnotherPage()));
-      },
+      onTap: () {},
       child: Stack(
         children: [
-          Image.asset('assets/historybodyback.png'), // Replace with your front body image
           Positioned(
-            top: 0, // Adjust the position according to your image
-            left: 153,
-            child: CircleButtonWidget(
-              value: '1', // Replace with the value you want to display
+            top: 0,
+            left: 0,
+            height: screenHeight,
+            child: SizedBox(
+              width: screenWidth * 0.5, // Adjusted the width to show half the image
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'History / Back',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 20),
+                  Image.asset(
+                    'assets/historybodyback.png',
+                    fit: BoxFit.contain,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: screenHeight * 0.18,
+            right: screenWidth * 0.05,
+            child: BoxWidget(
+              heading: 'Head',
+              value: '0',
               onPressed: () {
-                // Handle circle button press
+                // Navigate to another page
               },
             ),
           ),
           Positioned(
-            top: 120, // Adjust the position according to your image
-            left: 153,
-            child: CircleButtonWidget(
-              value: '2', // Replace with the value you want to display
+            top: screenHeight * 0.18,
+            right: screenWidth * 0.32,
+            child: BoxWidget(
+              heading: 'Body',
+              value: '1',
               onPressed: () {
-                // Handle circle button press
+                // Navigate to another page
               },
             ),
           ),
           Positioned(
-            top: 160, // Adjust the position according to your image
-            left: 23,
-            child: CircleButtonWidget(
-              value: '3', // Replace with the value you want to display
+            top: screenHeight * 0.27,
+            right: screenWidth * 0.05,
+            child: BoxWidget(
+              heading: 'Left Arm',
+              value: '0',
               onPressed: () {
-                // Handle circle button press
+                // Navigate to another page
               },
             ),
           ),
           Positioned(
-            top: 160, // Adjust the position according to your image
-            left: 273,
-            child: CircleButtonWidget(
-              value: '4', // Replace with the value you want to display
+            top: screenHeight * 0.27,
+            right: screenWidth * 0.32,
+            child: BoxWidget(
+              heading: 'Right Arm',
+              value: '0',
               onPressed: () {
-                // Handle circle button press
+                // Navigate to another page
               },
             ),
           ),
           Positioned(
-            top: 350, // Adjust the position according to your image
-            left: 97,
-            child: CircleButtonWidget(
-              value: '5', // Replace with the value you want to display
+            top: screenHeight * 0.36,
+            right: screenWidth * 0.32,
+            child: BoxWidget(
+              heading: 'Left Leg',
+              value: '0',
               onPressed: () {
-                // Handle circle button press
+                // Navigate to another page
               },
             ),
           ),
           Positioned(
-            top: 350, // Adjust the position according to your image
-            left: 208,
-            child: CircleButtonWidget(
-              value: '6', // Replace with the value you want to display
+            top: screenHeight * 0.36,
+            right: screenWidth * 0.05,
+            child: BoxWidget(
+              heading: 'Right Leg',
+              value: '0',
               onPressed: () {
-                // Handle circle button press
+                // Navigate to another page
               },
             ),
           ),
-
-          // Add more positioned circles for other body parts
         ],
       ),
     );
   }
 }
 
-class CircleButtonWidget extends StatelessWidget {
+
+class BoxWidget extends StatelessWidget {
+  final String heading;
   final String value;
   final VoidCallback onPressed;
-  final bool isBig;
 
-  const CircleButtonWidget({
+  const BoxWidget({
     Key? key,
+    required this.heading,
     required this.value,
     required this.onPressed,
-    this.isBig = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final double outerCircleSize = isBig ? 60 : 40;
-    final double innerCircleSize = isBig ? 40 : 30;
-
     return GestureDetector(
       onTap: onPressed,
-      child: SizedBox(
-        width: outerCircleSize,
-        height: outerCircleSize,
-        child: Stack(
-          children: [
-            Container(
-              width: outerCircleSize,
-              height: outerCircleSize,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.5),
-              ),
-            ),
-            Positioned(
-              top: (outerCircleSize - innerCircleSize) / 2,
-              left: (outerCircleSize - innerCircleSize) / 2,
-              child: Container(
-                width: innerCircleSize,
-                height: innerCircleSize,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-                child: Center(
-                  child: Text(
-                    value,
-                    style: const TextStyle(color: Colors.black, fontSize: 14),
+      child: Container(
+        width: 100,
+        height: 65,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: const Color(0xFF13204B),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Stack(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    heading,
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
                   ),
-                ),
+                  AppGaps.hGap10,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          value,
+                          style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const Icon(Icons.more_vert, size: 16, color: AppColors.white), // Replace with desired icon
+                    ],
+                  ),
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

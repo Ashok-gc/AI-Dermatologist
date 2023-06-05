@@ -1,3 +1,4 @@
+import 'package:ai_dermatologist/utils/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
 class HistoryFrontBodyWidget extends StatelessWidget {
@@ -13,70 +14,92 @@ class HistoryFrontBodyWidget extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: -70,
+            top: 0,
             left: 0,
             height: screenHeight,
             child: SizedBox(
               width: screenWidth * 0.5, // Adjusted the width to show half the image
               height: screenHeight,
-              child: Image.asset(
-                'assets/historybodyfront.png',
-                fit: BoxFit.contain,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'History / Front',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 20),
+                  Image.asset(
+                    'assets/historybodyfront.png',
+                    fit: BoxFit.contain,
+                  ),
+                ],
               ),
             ),
           ),
           Positioned(
-            top: screenHeight * 0.05,
-            left: screenWidth * 0.1,
-            child: CircleButtonWidget(
+            top: screenHeight * 0.18,
+            right: screenWidth * 0.05,
+            child: BoxWidget(
+              heading: 'Head',
+              value: '0',
+              onPressed: () {
+                // Navigate to another page
+              },
+            ),
+          ),
+          Positioned(
+            top: screenHeight * 0.18,
+            right: screenWidth * 0.32,
+            child: BoxWidget(
+              heading: 'Body',
               value: '1',
-              onPressed: () {},
-              isBig: true,
+              onPressed: () {
+                // Navigate to another page
+              },
             ),
           ),
           Positioned(
-            top: screenHeight * 0.3,
-            left: screenWidth * 0.1,
-            child: CircleButtonWidget(
-              value: '2',
-              onPressed: () {},
-              isBig: true,
+            top: screenHeight * 0.27,
+            right: screenWidth * 0.05,
+            child: BoxWidget(
+              heading: 'Left Arm',
+              value: '0',
+              onPressed: () {
+                // Navigate to another page
+              },
             ),
           ),
           Positioned(
-            top: screenHeight * 0.42,
-            left: screenWidth * 0.3,
-            child: CircleButtonWidget(
-              value: '3',
-              onPressed: () {},
-              isBig: false,
+            top: screenHeight * 0.27,
+            right: screenWidth * 0.32,
+            child: BoxWidget(
+              heading: 'Right Arm',
+              value: '0',
+              onPressed: () {
+                // Navigate to another page
+              },
             ),
           ),
           Positioned(
-            top: screenHeight * 0.42,
-            left: screenWidth * 0.04,
-            child: CircleButtonWidget(
-              value: '4',
-              onPressed: () {},
-              isBig: false,
+            top: screenHeight * 0.36,
+            right: screenWidth * 0.32,
+            child: BoxWidget(
+              heading: 'Left Leg',
+              value: '0',
+              onPressed: () {
+                // Navigate to another page
+              },
             ),
           ),
           Positioned(
-            top: screenHeight * 0.7,
-            left: screenWidth * 0.1,
-            child: CircleButtonWidget(
-              value: '5',
-              onPressed: () {},
-              isBig: false,
-            ),
-          ),
-          Positioned(
-            top: screenHeight * 0.7,
-            left: screenWidth * 0.02,
-            child: CircleButtonWidget(
-              value: '6',
-              onPressed: () {},
-              isBig: false,
+            top: screenHeight * 0.36,
+            right: screenWidth * 0.05,
+            child: BoxWidget(
+              heading: 'Right Leg',
+              value: '0',
+              onPressed: () {
+                // Navigate to another page
+              },
             ),
           ),
         ],
@@ -85,61 +108,59 @@ class HistoryFrontBodyWidget extends StatelessWidget {
   }
 }
 
-class CircleButtonWidget extends StatelessWidget {
+
+class BoxWidget extends StatelessWidget {
+  final String heading;
   final String value;
   final VoidCallback onPressed;
-  final bool isBig;
 
-  const CircleButtonWidget({
+  const BoxWidget({
     Key? key,
+    required this.heading,
     required this.value,
     required this.onPressed,
-    this.isBig = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final double outerCircleSize = isBig ? 0.12 : 0.08;
-    final double innerCircleSize = isBig ? 0.08 : 0.06;
-
     return GestureDetector(
       onTap: onPressed,
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * outerCircleSize,
-        height: MediaQuery.of(context).size.width * outerCircleSize,
-        child: Stack(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width * outerCircleSize,
-              height: MediaQuery.of(context).size.width * outerCircleSize,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.5),
-              ),
-            ),
-            Positioned(
-              top: (MediaQuery.of(context).size.width * outerCircleSize -
-                      MediaQuery.of(context).size.width * innerCircleSize) /
-                  2,
-              left: (MediaQuery.of(context).size.width * outerCircleSize -
-                      MediaQuery.of(context).size.width * innerCircleSize) /
-                  2,
-              child: Container(
-                width: MediaQuery.of(context).size.width * innerCircleSize,
-                height: MediaQuery.of(context).size.width * innerCircleSize,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-                child: Center(
-                  child: Text(
-                    value,
-                    style: const TextStyle(color: Colors.black, fontSize: 14),
+      child: Container(
+        width: 100,
+        height: 65,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: const Color(0xFF13204B),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Stack(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    heading,
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
                   ),
-                ),
+                  AppGaps.hGap10,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          value,
+                          style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const Icon(Icons.more_vert, size: 16, color: AppColors.white), // Replace with desired icon
+                    ],
+                  ),
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

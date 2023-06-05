@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../utils/constants/app_page_names.dart';
 import '../../widgets/core_widgets.dart';
 import '../../widgets/screen_widgets/home/back_body_widget.dart';
+import '../../widgets/screen_widgets/home/circlecontainer_widget.dart';
 import '../../widgets/screen_widgets/home/front_body_widget.dart';
 import '../../utils/constants/app_constants.dart';
 
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'Your Personal',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
                   color: AppColors.white,
                   fontWeight: FontWeight.normal,
                 ),
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'AI Dermalogist',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 25,
                   color: AppColors.white,
                   fontWeight: FontWeight.bold,
                 ),
@@ -103,8 +104,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 400,
-                      right: 16,
+                      top:350,
+                      right: 1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -115,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 80,
                               decoration: BoxDecoration(
                                 color: AppColors.white,
-                                border: Border.all(color: Colors.black),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -207,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(width: 16),
+                                  AppGaps.wGap10,
                                   Image.asset(
                                     'assets/icons/logo.png',
                                     width: 60,
@@ -218,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        AppGaps.hGap10,
                         const Text(
                           'Finding melanoma at an early stage is crucial; early detection can vastly increase your chances for cure.',
                           style: TextStyle(
@@ -263,7 +263,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  AppGaps.hGap10,
+                  AppGaps.hGap20,
+                  CircleContainer(
+                    outerCircleColor: Colors.white.withOpacity(0.5),
+                    innerCircleColor: Colors.white,
+                    rightTexts: const [
+                      'Photos Uploaded',
+                      'Without Problems',
+                      'Diagnosed Problems',
+                    ],
+                    rightValues: const [
+                      '10',
+                      '5',
+                      '3',
+                    ],
+                  ),
+
+                  AppGaps.hGap10
                 ],
               ),
             ),

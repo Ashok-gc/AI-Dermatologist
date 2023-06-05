@@ -1,6 +1,8 @@
 import 'package:ai_dermatologist/utils/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/constants/app_page_names.dart';
+
 class HistoryBackBodyWidget extends StatelessWidget {
   const HistoryBackBodyWidget({Key? key}) : super(key: key);
 
@@ -18,7 +20,8 @@ class HistoryBackBodyWidget extends StatelessWidget {
             left: 0,
             height: screenHeight,
             child: SizedBox(
-              width: screenWidth * 0.5, // Adjusted the width to show half the image
+              width: screenWidth *
+                  0.5, // Adjusted the width to show half the image
               height: screenHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +41,7 @@ class HistoryBackBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: screenHeight * 0.18,
-            right: screenWidth * 0.05,
+            right: screenWidth * 0.32,
             child: BoxWidget(
               heading: 'Head',
               value: '0',
@@ -49,18 +52,20 @@ class HistoryBackBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: screenHeight * 0.18,
-            right: screenWidth * 0.32,
+            right: screenWidth * 0.03,
             child: BoxWidget(
               heading: 'Body',
               value: '1',
               onPressed: () {
-                // Navigate to another page
+                Navigator.pushNamed(
+                                context,
+                                AppPageNames.myHistoriesScreen);
               },
             ),
           ),
           Positioned(
-            top: screenHeight * 0.27,
-            right: screenWidth * 0.05,
+            top: screenHeight * 0.28,
+            right: screenWidth * 0.03,
             child: BoxWidget(
               heading: 'Left Arm',
               value: '0',
@@ -70,7 +75,7 @@ class HistoryBackBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight * 0.27,
+            top: screenHeight * 0.28,
             right: screenWidth * 0.32,
             child: BoxWidget(
               heading: 'Right Arm',
@@ -81,7 +86,7 @@ class HistoryBackBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight * 0.36,
+            top: screenHeight * 0.38,
             right: screenWidth * 0.32,
             child: BoxWidget(
               heading: 'Left Leg',
@@ -92,8 +97,8 @@ class HistoryBackBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight * 0.36,
-            right: screenWidth * 0.05,
+            top: screenHeight * 0.38,
+            right: screenWidth * 0.03,
             child: BoxWidget(
               heading: 'Right Leg',
               value: '0',
@@ -107,7 +112,6 @@ class HistoryBackBodyWidget extends StatelessWidget {
     );
   }
 }
-
 
 class BoxWidget extends StatelessWidget {
   final String heading;
@@ -141,7 +145,8 @@ class BoxWidget extends StatelessWidget {
                 children: [
                   Text(
                     heading,
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.normal),
                   ),
                   AppGaps.hGap10,
                   Row(
@@ -150,11 +155,16 @@ class BoxWidget extends StatelessWidget {
                       Expanded(
                         child: Text(
                           value,
-                          style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      const Icon(Icons.more_vert, size: 16, color: AppColors.white), // Replace with desired icon
+                      const Icon(Icons.more_vert,
+                          size: 16,
+                          color: AppColors.white), // Replace with desired icon
                     ],
                   ),
                 ],

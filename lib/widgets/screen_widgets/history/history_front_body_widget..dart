@@ -1,6 +1,8 @@
 import 'package:ai_dermatologist/utils/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/constants/app_page_names.dart';
+
 class HistoryFrontBodyWidget extends StatelessWidget {
   const HistoryFrontBodyWidget({Key? key}) : super(key: key);
 
@@ -38,7 +40,7 @@ class HistoryFrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: screenHeight * 0.18,
-            right: screenWidth * 0.05,
+            right: screenWidth * 0.32,
             child: BoxWidget(
               heading: 'Head',
               value: '0',
@@ -49,18 +51,20 @@ class HistoryFrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: screenHeight * 0.18,
-            right: screenWidth * 0.32,
+            right: screenWidth * 0.03,
             child: BoxWidget(
               heading: 'Body',
               value: '1',
               onPressed: () {
-                // Navigate to another page
+                Navigator.pushNamed(
+                                context,
+                                AppPageNames.myHistoriesScreen);
               },
             ),
           ),
           Positioned(
-            top: screenHeight * 0.27,
-            right: screenWidth * 0.05,
+            top: screenHeight * 0.28,
+            right: screenWidth * 0.03,
             child: BoxWidget(
               heading: 'Left Arm',
               value: '0',
@@ -70,7 +74,7 @@ class HistoryFrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight * 0.27,
+            top: screenHeight * 0.28,
             right: screenWidth * 0.32,
             child: BoxWidget(
               heading: 'Right Arm',
@@ -81,7 +85,7 @@ class HistoryFrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight * 0.36,
+            top: screenHeight * 0.38,
             right: screenWidth * 0.32,
             child: BoxWidget(
               heading: 'Left Leg',
@@ -92,8 +96,8 @@ class HistoryFrontBodyWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight * 0.36,
-            right: screenWidth * 0.05,
+            top: screenHeight * 0.38,
+            right: screenWidth * 0.03,
             child: BoxWidget(
               heading: 'Right Leg',
               value: '0',

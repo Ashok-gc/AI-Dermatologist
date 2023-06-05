@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FrontBodyWidget extends StatelessWidget {
-  const FrontBodyWidget({super.key});
+class HistoryBackBodyWidget extends StatelessWidget {
+  const HistoryBackBodyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +13,10 @@ class FrontBodyWidget extends StatelessWidget {
       },
       child: Stack(
         children: [
-          Image.asset('assets/front_image.png'), // Replace with your front body image
+          Image.asset('assets/historybodyback.png'), // Replace with your front body image
           Positioned(
-            top: 1, // Adjust the position according to your image
-            left: 140,
+            top: 0, // Adjust the position according to your image
+            left: 153,
             child: CircleButtonWidget(
               value: '1', // Replace with the value you want to display
               onPressed: () {
@@ -26,7 +26,7 @@ class FrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: 120, // Adjust the position according to your image
-            left: 140,
+            left: 153,
             child: CircleButtonWidget(
               value: '2', // Replace with the value you want to display
               onPressed: () {
@@ -36,7 +36,7 @@ class FrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: 160, // Adjust the position according to your image
-            left: 25,
+            left: 23,
             child: CircleButtonWidget(
               value: '3', // Replace with the value you want to display
               onPressed: () {
@@ -46,7 +46,7 @@ class FrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: 160, // Adjust the position according to your image
-            left: 258,
+            left: 273,
             child: CircleButtonWidget(
               value: '4', // Replace with the value you want to display
               onPressed: () {
@@ -56,7 +56,7 @@ class FrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: 350, // Adjust the position according to your image
-            left: 83,
+            left: 97,
             child: CircleButtonWidget(
               value: '5', // Replace with the value you want to display
               onPressed: () {
@@ -66,7 +66,7 @@ class FrontBodyWidget extends StatelessWidget {
           ),
           Positioned(
             top: 350, // Adjust the position according to your image
-            left: 193,
+            left: 208,
             child: CircleButtonWidget(
               value: '6', // Replace with the value you want to display
               onPressed: () {

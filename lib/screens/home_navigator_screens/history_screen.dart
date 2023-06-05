@@ -1,8 +1,8 @@
+import 'package:ai_dermatologist/widgets/screen_widgets/history/history_back_body_widget.dart';
+import 'package:ai_dermatologist/widgets/screen_widgets/history/history_front_body_widget..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../widgets/core_widgets.dart';
-import '../../widgets/screen_widgets/home/back_body_widget.dart';
-import '../../widgets/screen_widgets/home/front_body_widget.dart';
 import '../../utils/constants/app_constants.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -13,11 +13,11 @@ class HistoryScreen extends StatefulWidget {
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
-  bool _showFrontBody = true;
+  bool _showHistoryFrontBody = true;
 
   void _toggleBody() {
     setState(() {
-      _showFrontBody = !_showFrontBody;
+      _showHistoryFrontBody = !_showHistoryFrontBody;
     });
   }
 
@@ -46,18 +46,18 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                 ),
               ),
-            ),
-            AppGaps.hGap10, 
+            ), 
             Container(
               child: SizedBox(
-                height: MediaQuery.of(context).size.height - 260,
+                height: MediaQuery.of(context).size.height - 210,
+                width: MediaQuery.of(context).size.width - 180,
                 child: Stack(
                   children: [
                     Positioned.fill(
                       child: Center(
-                        child: _showFrontBody
-                            ? const FrontBodyWidget()
-                            : const BackBodyWidget(),
+                        child: _showHistoryFrontBody
+                            ? const HistoryFrontBodyWidget()
+                            : const HistoryBackBodyWidget(),
                       ),
                     ),
                     Positioned(
@@ -77,7 +77,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               ),
                               child: Center(
                                 child: Image.asset(
-                                  _showFrontBody
+                                  _showHistoryFrontBody
                                       ? 'assets/back_image.png'
                                       : 'assets/front_image.png',
                                   fit: BoxFit.contain,
@@ -104,7 +104,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 ),
               ),
             ),
-            AppGaps.hGap20,
           ],
         ),
       ),

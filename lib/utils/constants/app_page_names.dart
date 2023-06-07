@@ -19,4 +19,5 @@ class AppPageNames {
   static const String historyDiseaseDescScreen = '/history-disease-desc';
   static const String diseaseDescScreen = '/disease-desc';
   static const String faqScreen = '/faq';
+  static const String uploadingScreen = '/uploading';
 }

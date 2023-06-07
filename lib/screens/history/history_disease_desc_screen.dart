@@ -11,7 +11,8 @@ class HistoryDiseaseDescScreen extends StatefulWidget {
   const HistoryDiseaseDescScreen({Key? key}) : super(key: key);
 
   @override
-  State<HistoryDiseaseDescScreen> createState() => _HistoryDiseaseDescScreenState();
+  State<HistoryDiseaseDescScreen> createState() =>
+      _HistoryDiseaseDescScreenState();
 }
 
 class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
@@ -64,7 +65,7 @@ class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
                     return MyDiseaseDescWidget(
                       onTap: () {
                         Navigator.pushNamed(
-                          context, AppPageNames.diseaseDescScreen);
+                            context, AppPageNames.diseaseDescScreen);
                       },
                       diseaseName: myDisease.diseasename,
                       diseaseImage: myDisease.diseaseImage,
@@ -82,29 +83,29 @@ class _HistoryDiseaseDescScreenState extends State<HistoryDiseaseDescScreen> {
         ),
       ),
       bottomNavigationBar: CustomScaffoldBottomBarWidget(
-  backgroundColor: AppColors.container2,
-  child: CustomStretchedButtonWidget2(
-    onTap: () {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return CustomAlertDialog(
-            title: 'Confirmation',
-            message: 'Are you sure you want to delete the data?',
-            onDeletePressed: () {
-              // Add your delete logic here
-              Navigator.of(context).pop();
-            },
-            onCancelPressed: () {
-              Navigator.of(context).pop();
-            },
-          );
-        },
-      );
-    },
-    child: const Text('Delete'),
-  ),
-),
+        backgroundColor: AppColors.container2,
+        child: CustomStretchedButtonWidget2(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return CustomAlertDialog(
+                  title: 'Confirmation',
+                  message: 'Are you sure you want to delete the data?',
+                  onDeletePressed: () {
+                    // Add your delete logic here
+                    Navigator.of(context).pop();
+                  },
+                  onCancelPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                );
+              },
+            );
+          },
+          child: const Text('Delete'),
+        ),
+      ),
 
       // bottomNavigationBar: CustomScaffoldBottomBarWidget(
       //   backgroundColor: AppColors.container2,

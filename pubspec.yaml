@@ -49,6 +49,7 @@ dependencies:
   dotted_border: ^2.0.0+2
   # For persistent bottom sliding up panel
   sliding_up_panel: ^2.0.0+1
+  flutter_spinkit: ^5.2.0
 
 dev_dependencies:
   flutter_test:

@@ -21,6 +21,7 @@ class CustomScaffoldBodyWidget extends StatelessWidget {
     );
   }
 }
+
 class CustomScaffoldBodyWidget2 extends StatelessWidget {
   final Widget child;
   const CustomScaffoldBodyWidget2({Key? key, required this.child})
@@ -32,13 +33,9 @@ class CustomScaffoldBodyWidget2 extends StatelessWidget {
       padding:
           const EdgeInsets.only(left: 1.0, right: 1.0, top: 1.0, bottom: 0),
       child: child,
-      
     );
   }
 }
-
-
-
 
 /// Custom padded bottom bar widget for scaffold
 class CustomScaffoldBottomBarWidget extends StatelessWidget {
@@ -48,7 +45,11 @@ class CustomScaffoldBottomBarWidget extends StatelessWidget {
 
   final BorderRadius? borderRadius;
   const CustomScaffoldBottomBarWidget(
-      {Key? key, required this.child, this.backgroundColor, this.borderRadius, this.border})
+      {Key? key,
+      required this.child,
+      this.backgroundColor,
+      this.borderRadius,
+      this.border})
       : super(key: key);
 
   @override
@@ -74,7 +75,7 @@ class CustomStretchedTextButtonWidget extends StatelessWidget {
   const CustomStretchedTextButtonWidget({
     Key? key,
     this.onTap,
-    required this.buttonText, 
+    required this.buttonText,
   }) : super(key: key);
 
   @override
@@ -87,12 +88,17 @@ class CustomStretchedTextButtonWidget extends StatelessWidget {
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               shadowColor: AppColors.primaryColor.withOpacity(0.25),
-              backgroundColor: onTap == null ? const Color.fromARGB(132, 41, 43, 73) : AppColors.primaryColor,
+              backgroundColor: onTap == null
+                  ? const Color.fromARGB(132, 41, 43, 73)
+                  : AppColors.primaryColor,
               minimumSize: const Size(30, 62),
               shape: RoundedRectangleBorder(
-                borderRadius: const BorderRadius.all(AppComponents.defaultBorderRadius),
+                borderRadius:
+                    const BorderRadius.all(AppComponents.defaultBorderRadius),
                 side: BorderSide(
-                  color: onTap == null ? AppColors.white.withOpacity(0.5) : AppColors.white,
+                  color: onTap == null
+                      ? AppColors.white.withOpacity(0.5)
+                      : AppColors.white,
                   width: 2.0,
                   style: BorderStyle.solid,
                 ),
@@ -100,7 +106,8 @@ class CustomStretchedTextButtonWidget extends StatelessWidget {
             ),
             child: Text(
               buttonText,
-              style: onTap == null ? const TextStyle(color: Colors.white) : null,
+              style:
+                  onTap == null ? const TextStyle(color: Colors.white) : null,
             ),
           ),
         ),
@@ -108,8 +115,6 @@ class CustomStretchedTextButtonWidget extends StatelessWidget {
     );
   }
 }
-
-
 
 /// Custom TextButton stretches the width of the screen with small elevation
 class CustomSmallTextButtonWidget extends StatelessWidget {
@@ -133,12 +138,18 @@ class CustomSmallTextButtonWidget extends StatelessWidget {
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
                 shadowColor: AppColors.primaryColor.withOpacity(0.25),
-                backgroundColor: onTap == null ? Colors.transparent : AppColors.primaryColor,
-                minimumSize: onTap == null ? const Size(80, 40) : const Size(220, 58), // Adjust the size values as desired
+                backgroundColor:
+                    onTap == null ? Colors.transparent : AppColors.primaryColor,
+                minimumSize: onTap == null
+                    ? const Size(80, 40)
+                    : const Size(220, 58), // Adjust the size values as desired
                 shape: RoundedRectangleBorder(
-                  borderRadius: const BorderRadius.all(AppComponents.default2BorderRadius),
+                  borderRadius: const BorderRadius.all(
+                      AppComponents.default2BorderRadius),
                   side: BorderSide(
-                    color: onTap == null ? AppColors.white.withOpacity(0.5) : AppColors.white,
+                    color: onTap == null
+                        ? AppColors.white.withOpacity(0.5)
+                        : AppColors.white,
                     width: 2.0,
                     style: BorderStyle.solid,
                   ),
@@ -146,7 +157,8 @@ class CustomSmallTextButtonWidget extends StatelessWidget {
               ),
               child: Text(
                 buttonText,
-                style: onTap == null ? const TextStyle(color: Colors.white) : null,
+                style:
+                    onTap == null ? const TextStyle(color: Colors.white) : null,
               ),
             ),
           ),
@@ -155,7 +167,6 @@ class CustomSmallTextButtonWidget extends StatelessWidget {
     );
   }
 }
-
 
 class CustomSmallTextButtonWidget2 extends StatelessWidget {
   final String buttonText;
@@ -178,12 +189,18 @@ class CustomSmallTextButtonWidget2 extends StatelessWidget {
               style: TextButton.styleFrom(
                 foregroundColor: AppColors.primaryColor,
                 shadowColor: AppColors.primaryColor.withOpacity(0.25),
-                backgroundColor: onTap == null ? Colors.transparent : AppColors.white,
-                minimumSize: onTap == null ? const Size(80, 40) : const Size(220, 58), // Adjust the size values as desired
+                backgroundColor:
+                    onTap == null ? Colors.transparent : AppColors.white,
+                minimumSize: onTap == null
+                    ? const Size(80, 40)
+                    : const Size(220, 58), // Adjust the size values as desired
                 shape: RoundedRectangleBorder(
-                  borderRadius: const BorderRadius.all(AppComponents.default2BorderRadius),
+                  borderRadius: const BorderRadius.all(
+                      AppComponents.default2BorderRadius),
                   side: BorderSide(
-                    color: onTap == null ? AppColors.white.withOpacity(0.5) : AppColors.primaryColor,
+                    color: onTap == null
+                        ? AppColors.white.withOpacity(0.5)
+                        : AppColors.primaryColor,
                     width: 2.0,
                     style: BorderStyle.solid,
                   ),
@@ -191,7 +208,9 @@ class CustomSmallTextButtonWidget2 extends StatelessWidget {
               ),
               child: Text(
                 buttonText,
-                style: onTap == null ? const TextStyle(color: AppColors.primaryColor) : null,
+                style: onTap == null
+                    ? const TextStyle(color: AppColors.primaryColor)
+                    : null,
               ),
             ),
           ),
@@ -200,8 +219,6 @@ class CustomSmallTextButtonWidget2 extends StatelessWidget {
     );
   }
 }
-
-
 
 /// Custom TextButton stretches the width of the screen with small elevation
 /// shadow with custom child widget
@@ -222,11 +239,11 @@ class CustomStretchedButtonWidget extends StatelessWidget {
           child: TextButton(
               onPressed: onTap,
               style: TextButton.styleFrom(
-                  foregroundColor: Colors.white, elevation: 10,
+                  foregroundColor: Colors.white,
+                  elevation: 10,
                   shadowColor: AppColors.primaryColor.withOpacity(0.25),
-                  backgroundColor: onTap == null
-                      ? AppColors.white
-                      : AppColors.primaryColor,
+                  backgroundColor:
+                      onTap == null ? AppColors.white : AppColors.primaryColor,
                   minimumSize: const Size(30, 62),
                   shape: const RoundedRectangleBorder(
                       borderRadius:
@@ -255,11 +272,11 @@ class CustomStretchedButtonWidget2 extends StatelessWidget {
           child: TextButton(
               onPressed: onTap,
               style: TextButton.styleFrom(
-                  foregroundColor: Colors.white, elevation: 10,
+                  foregroundColor: Colors.white,
+                  elevation: 10,
                   shadowColor: AppColors.primaryColor.withOpacity(0.25),
-                  backgroundColor: onTap == null
-                      ? AppColors.white
-                      : AppColors.alertColor,
+                  backgroundColor:
+                      onTap == null ? AppColors.white : AppColors.alertColor,
                   minimumSize: const Size(30, 62),
                   shape: const RoundedRectangleBorder(
                       borderRadius:
@@ -289,9 +306,8 @@ class CustomStretchedButtonWidget3 extends StatelessWidget {
               onPressed: onTap,
               style: TextButton.styleFrom(
                   shadowColor: AppColors.primaryColor.withOpacity(0.25),
-                  backgroundColor: onTap == null
-                      ? AppColors.white
-                      : AppColors.alertColor,
+                  backgroundColor:
+                      onTap == null ? AppColors.white : AppColors.alertColor,
                   minimumSize: const Size(30, 62),
                   shape: const RoundedRectangleBorder(
                       borderRadius:
@@ -303,8 +319,38 @@ class CustomStretchedButtonWidget3 extends StatelessWidget {
   }
 }
 
+class CustomStretchedButtonWidget4 extends StatelessWidget {
+  final Widget child;
+  final void Function()? onTap;
+  const CustomStretchedButtonWidget4({
+    Key? key,
+    this.onTap,
+    required this.child,
+  }) : super(key: key);
 
-
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
+                  shadowColor: AppColors.primaryColor.withOpacity(0.25),
+                  backgroundColor:
+                      onTap == null ? AppColors.white : Colors.transparent,
+                  minimumSize: const Size(30, 62),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(AppComponents.default2BorderRadius),
+                          side: BorderSide(color: AppColors.primaryColor, width: 2.0, style: BorderStyle.solid,)
+                          )),
+              child: child),
+        ),
+      ],
+    );
+  }
+}
 
 /// Custom toggle button of tab widget
 class CustomTabToggleButtonWidget extends StatelessWidget {
@@ -516,7 +562,6 @@ class CustomTextFormField extends StatelessWidget {
     }
   }
 }
-
 
 class CustomTextFormField2 extends StatelessWidget {
   final String? labelText;
@@ -731,7 +776,8 @@ class CustomLargeTextButtonWidget extends StatelessWidget {
     return TextButton(
         onPressed: onTap,
         style: TextButton.styleFrom(
-            foregroundColor: textColor, fixedSize:
+            foregroundColor: textColor,
+            fixedSize:
                 isSmallScreen ? const Size(140, 55) : const Size(175, 65),
             visualDensity: const VisualDensity(
                 horizontal: VisualDensity.minimumDensity,
@@ -893,7 +939,6 @@ class CustomVerticalDashedLineWidget extends StatelessWidget {
   }
 }
 
-
 /// Slogan and subtitle text
 class HighlightAndDetailTextWidget extends StatelessWidget {
   final String slogan;
@@ -956,7 +1001,6 @@ class HighlightAndDetailTextWidget2 extends StatelessWidget {
     );
   }
 }
-
 
 /// Wishlist screen grid item button widget
 class WishlistItemButtonWidget extends StatelessWidget {

@@ -370,6 +370,22 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                             },
                           ),
                           AppGaps.hGap24,
+                          CustomListTileMyAccountWidget(
+                            text: 'Uploading Screen',
+                            icon: SvgPicture.asset(
+                              AppAssetImages.settingSVGLogoDualTone,
+                              color: AppColors.primaryColor,
+                              height: 24,
+                              width: 24,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppPageNames.uploadingScreen,
+                              );
+                            },
+                          ),
+                          AppGaps.hGap24,
                           /* <---- 'Sign out' list tile button ----> */
                           CustomListTileMyAccountWidget(
                             text: 'Sign out',

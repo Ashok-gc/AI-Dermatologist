@@ -352,6 +352,71 @@ class CustomStretchedButtonWidget4 extends StatelessWidget {
   }
 }
 
+class CustomStretchedButtonWidget5 extends StatelessWidget {
+  final Widget child;
+  final void Function()? onTap;
+  const CustomStretchedButtonWidget5({
+    Key? key,
+    this.onTap,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
+                  shadowColor: AppColors.primaryColor.withOpacity(0.25),
+                  backgroundColor:
+                      onTap == null ? AppColors.white : Colors.transparent,
+                  minimumSize: const Size(30, 50),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(AppComponents.default2BorderRadius),
+                          side: BorderSide(color: AppColors.primaryColor, width: 2.0, style: BorderStyle.solid,)
+                          )),
+              child: child),
+        ),
+      ],
+    );
+  }
+}
+class CustomStretchedButtonWidget6 extends StatelessWidget {
+  final Widget child;
+  final void Function()? onTap;
+  const CustomStretchedButtonWidget6({
+    Key? key,
+    this.onTap,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  elevation: 10,
+                  shadowColor: AppColors.primaryColor.withOpacity(0.25),
+                  backgroundColor:
+                      onTap == null ? AppColors.white : AppColors.primaryColor,
+                  minimumSize: const Size(30, 50),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(AppComponents.defaultBorderRadius))),
+              child: child),
+        ),
+      ],
+    );
+  }
+}
+
 /// Custom toggle button of tab widget
 class CustomTabToggleButtonWidget extends StatelessWidget {
   final bool isSelected;

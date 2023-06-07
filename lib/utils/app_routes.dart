@@ -80,7 +80,7 @@ class AppRouteGenerator {
       case AppPageNames.uploadedImagePredictionDetailsScreen:
         return MaterialPageRoute(builder: (_) => const UploadedImagePredictionDetailsScreen());
       case AppPageNames.analysissaveFormScreen:
-        return MaterialPageRoute(builder: (_) => const PredictedAnalysisSaveFormScren());
+        return MaterialPageRoute(builder: (_) => const PredictedAnalysisSaveFormScreen());
       default:
         // Open this page if wrong route address used
         return MaterialPageRoute(

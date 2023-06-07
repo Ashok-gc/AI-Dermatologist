@@ -37,5 +37,6 @@ class AppAssetImages {
   static const String downarrowSVGLogoSolid = 'assets/icons/line/arrowdown.svg';
   static const String rightarrowSVG = 'assets/icons/line/arrowrightt.svg';
   static const String filterSVG = 'assets/icons/line/filter.svg';
+  static const String tasksquareSVG = 'assets/icons/line/tasksquare.svg';
 
 }

@@ -233,7 +233,7 @@ class _ImageUploadedScreenState extends State<ImageUploadedScreen> {
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 5),
                           child: Text(
-                            'Press \'View Results\' to see the results. ',
+                            'The application has analyzed your photo. Press \'View Results\' to see the results. ',
                             style: TextStyle(
                               color: Color.fromARGB(255, 0, 0, 0),
                               fontSize: 18,

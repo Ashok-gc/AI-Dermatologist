@@ -85,7 +85,7 @@ class _UploadedImagePredictionScreenState
             children: [
               CustomStretchedButtonWidget(
                 onTap: () {
-                  // Handle 'Save Results' button tap
+                  Navigator.pushNamed(context, AppPageNames.analysissaveFormScreen);
                 },
                 child: const Text('Save Results'),
               ),

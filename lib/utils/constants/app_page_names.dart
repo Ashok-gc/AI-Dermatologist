@@ -20,4 +20,7 @@ class AppPageNames {
   static const String diseaseDescScreen = '/disease-desc';
   static const String faqScreen = '/faq';
   static const String uploadingScreen = '/uploading';
+  static const String imageUploadedScreen = '/image-uploaded';
+  static const String uploadedImagePredictionScreen = '/uploaded-image-prediction';
+  static const String uploadedImagePredictionDetailsScreen = '/uploaded-image-prediction-details';
 }

@@ -140,8 +140,8 @@ class _UploadingScreenState extends State<UploadingScreen> {
   }
 
   void _startTimer() {
-    _timer = Timer(const Duration(seconds: 5), () {
-      Navigator.pushNamed(context, AppPageNames.settingScreen);
+    _timer = Timer(const Duration(seconds: 3), () {
+      Navigator.pushNamed(context, AppPageNames.imageUploadedScreen);
     });
   }
 
@@ -200,7 +200,7 @@ class _UploadingScreenState extends State<UploadingScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    AppGaps.hGap20,
                     Container(
                       width: 420,
                       height: 150,

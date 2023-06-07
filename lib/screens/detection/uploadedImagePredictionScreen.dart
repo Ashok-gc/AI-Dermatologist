@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
 
-import '../../models/fake_data.dart';
 import '../../utils/constants/app_constants.dart';
 import '../../utils/constants/app_page_names.dart';
 import '../../widgets/core_widgets.dart';
 import '../../widgets/screen_widgets/my_disease_desc_screen_widgets.dart';
 
 class UploadedImagePredictionScreen extends StatefulWidget {
-  const UploadedImagePredictionScreen({super.key});
+  const UploadedImagePredictionScreen({Key? key}) : super(key: key);
 
   @override
-  State<UploadedImagePredictionScreen> createState() => _UploadedImagePredictionScreenState();
+  State<UploadedImagePredictionScreen> createState() =>
+      _UploadedImagePredictionScreenState();
 }
 
-class _UploadedImagePredictionScreenState extends State<UploadedImagePredictionScreen> {
+class _UploadedImagePredictionScreenState
+    extends State<UploadedImagePredictionScreen> {
+  final List<Map<String, dynamic>> diseaseData = [
+    {
+      'diseaseName': 'Disease 1',
+      'diseaseImage': 'assets/images/demo_images/my_account_profile_picture.jpg',
+      'dateText': 'June 1, 2023',
+      'riskAssessment': 'High',
+      'result': 'Positive',
+      'preciseDiagnosis': 'Diagnosis 1',
+      'advice': 'Advice 1',
+    }
+  ];
+
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       appBar: CoreWidgets.appBarWidget(
@@ -41,21 +54,21 @@ class _UploadedImagePredictionScreenState extends State<UploadedImagePredictionS
                 child: ListView.separated(
                   padding: const EdgeInsets.only(top: 30, bottom: 30),
                   separatorBuilder: (context, index) => AppGaps.hGap16,
-                  itemCount: FakeData.diesaseDescription.length,
+                  itemCount: diseaseData.length,
                   itemBuilder: (context, index) {
-                    final myDisease = FakeData.diesaseDescription[index];
+                    final myDisease = diseaseData[index];
                     return MyDiseaseDescWidget(
                       onTap: () {
                         Navigator.pushNamed(
                             context, AppPageNames.uploadedImagePredictionDetailsScreen);
                       },
-                      diseaseName: myDisease.diseasename,
-                      diseaseImage: myDisease.diseaseImage,
-                      dateText: myDisease.dateText,
-                      riskAssessment: myDisease.riskassessment,
-                      result: myDisease.result,
-                      preciseDiagnosis: myDisease.precisediagnosis,
-                      advice: myDisease.advice,
+                      diseaseName: myDisease['diseaseName'],
+                      diseaseImage: AssetImage(myDisease['diseaseImage']),
+                      dateText: myDisease['dateText'],
+                      riskAssessment: myDisease['riskAssessment'],
+                      result: myDisease['result'],
+                      preciseDiagnosis: myDisease['preciseDiagnosis'],
+                      advice: myDisease['advice'],
                     );
                   },
                 ),
@@ -72,7 +85,7 @@ class _UploadedImagePredictionScreenState extends State<UploadedImagePredictionS
             children: [
               CustomStretchedButtonWidget(
                 onTap: () {
-                  // Handle 'Done' button tap
+                  // Handle 'Save Results' button tap
                 },
                 child: const Text('Save Results'),
               ),

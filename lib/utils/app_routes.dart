@@ -14,6 +14,7 @@ import 'package:ai_dermatologist/screens/sigin_screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/Profile/change_password_screen.dart';
+import '../screens/detection/analysis_save_form_screen.dart';
 import '../screens/detection/image_uploaded.dart';
 import '../screens/detection/uploadedImagePredictionDetailsScreen.dart';
 import '../screens/detection/uploadedImagePredictionScreen.dart';
@@ -78,6 +79,8 @@ class AppRouteGenerator {
         return MaterialPageRoute(builder: (_) => const UploadedImagePredictionScreen());
       case AppPageNames.uploadedImagePredictionDetailsScreen:
         return MaterialPageRoute(builder: (_) => const UploadedImagePredictionDetailsScreen());
+      case AppPageNames.analysissaveFormScreen:
+        return MaterialPageRoute(builder: (_) => const PredictedAnalysisSaveFormScren());
       default:
         // Open this page if wrong route address used
         return MaterialPageRoute(

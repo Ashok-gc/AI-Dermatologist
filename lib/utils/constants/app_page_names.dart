@@ -23,4 +23,6 @@ class AppPageNames {
   static const String imageUploadedScreen = '/image-uploaded';
   static const String uploadedImagePredictionScreen = '/uploaded-image-prediction';
   static const String uploadedImagePredictionDetailsScreen = '/uploaded-image-prediction-details';
+  static const String analysissaveFormScreen = '/analysis-save-form';
+
 }

@@ -331,7 +331,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                             onTap: () {
                               Navigator.pushNamed(
                                 context,
-                                AppPageNames.myHistoriesScreen,
+                                AppPageNames.homeNavigatorScreen,
                               // );
                           );},
                           ),

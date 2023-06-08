@@ -22,6 +22,7 @@ import '../screens/detection/uploading_screen.dart';
 import '../screens/faq/faq_questions_screen.dart';
 import '../screens/history/disease_description_screen.dart';
 import '../screens/history/history_disease_desc_screen.dart';
+import '../screens/how_to_use/howtouseScreen.dart';
 import '../screens/intro_screen.dart';
 import '../screens/signup_screen/signup_screen.dart';
 import '../screens/splash_screen.dart';
@@ -81,6 +82,8 @@ class AppRouteGenerator {
         return MaterialPageRoute(builder: (_) => const UploadedImagePredictionDetailsScreen());
       case AppPageNames.analysissaveFormScreen:
         return MaterialPageRoute(builder: (_) => const PredictedAnalysisSaveFormScreen());
+      case AppPageNames.howtouseappscreen:
+        return MaterialPageRoute(builder: (_) =>  HowToUseAppPageScreen());
       default:
         // Open this page if wrong route address used
         return MaterialPageRoute(

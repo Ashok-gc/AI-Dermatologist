@@ -59,12 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            AppGaps.hGap10,
+            AppGaps.hGap20,
             GestureDetector(
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  AppPageNames.editProfileScreen,
+                  AppPageNames.howtouseappscreen,
                 );
               },
               child: Row(
@@ -72,6 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 25),
+                    child: Icon(
+                      Icons.help_rounded,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5),
                     child: Text(
                       'How to use?',
                       style: TextStyle(
@@ -79,13 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.help,
-                      color: Colors.white,
                     ),
                   ),
                 ],

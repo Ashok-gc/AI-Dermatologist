@@ -1035,6 +1035,30 @@ class HighlightAndDetailTextWidget extends StatelessWidget {
     );
   }
 }
+class HighlightAndDetailTextWidget3 extends StatelessWidget {
+  final String subtitle;
+  final bool isSpaceShorter;
+  const HighlightAndDetailTextWidget3({
+    Key? key,
+    required this.subtitle,
+    this.isSpaceShorter = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        // isSpaceShorter ? AppGaps.hGap20 : AppGaps.hGap10,
+        Text(subtitle,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: AppColors.primaryColor, fontWeight: FontWeight.normal, fontSize: 18 ,overflow: TextOverflow.clip)),
+      ],
+    );
+  }
+}
 
 class HighlightAndDetailTextWidget2 extends StatelessWidget {
   final String slogan;

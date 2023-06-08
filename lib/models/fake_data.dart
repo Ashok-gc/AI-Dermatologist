@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'fake_models/faq_models.dart';
+import 'fake_models/how-to_use_model.dart';
 import 'fake_models/intro_content_model.dart';
 import 'fake_models/my_disease_model.dart';
 import 'fake_models/my_history_model.dart';
@@ -73,4 +74,25 @@ class FakeData {
     ),
     // Add more questions and answers as needed
   ];
+  static List<FakeHowToUseContent> fakeHowToUseContent = [
+    FakeHowToUseContent(
+        localSVGImageLocation: 'assets/htu/1.png',
+        content:
+            'Take a square photo with a mole in the center of the frame.'),
+    FakeHowToUseContent(
+        localSVGImageLocation: 'assets/htu/2.png',
+        content:
+            'The smallest possible distance (2-4” or 5-10 cm) for a clear frame'),
+    FakeHowToUseContent(
+        localSVGImageLocation: 'assets/htu/3.png',
+        content:
+            'The photo should be free of foreign objects (hair, jewelry, etc.'),
+    FakeHowToUseContent(
+        localSVGImageLocation: 'assets/htu/4.png',
+        content:
+            'Save results and track dynamics of the stored object'),
+  ];
+
+
+  
 }

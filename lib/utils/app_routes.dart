@@ -83,7 +83,7 @@ class AppRouteGenerator {
       case AppPageNames.analysissaveFormScreen:
         return MaterialPageRoute(builder: (_) => const PredictedAnalysisSaveFormScreen());
       case AppPageNames.howtouseappscreen:
-        return MaterialPageRoute(builder: (_) =>  HowToUseAppPageScreen());
+        return MaterialPageRoute(builder: (_) =>  const HowToUseAppPageScreen());
       default:
         // Open this page if wrong route address used
         return MaterialPageRoute(

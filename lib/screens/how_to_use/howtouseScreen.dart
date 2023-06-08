@@ -145,7 +145,7 @@ class _HowToUseAppPageScreenState extends State<HowToUseAppPageScreen> {
                                     dotColor: AppColors.bodyTextColor),
                               ),
                             ),
-                            AppGaps.hGap15,
+                            AppGaps.hGap13,
                           ]),
                     ),
                     // AppGaps.hGap30,

@@ -14,6 +14,7 @@ class AppGaps {
   static const SizedBox hGap10 = SizedBox(height: 10);
   static const SizedBox hGap11 = SizedBox(height: 11);
   static const SizedBox hGap12 = SizedBox(height: 12);
+  static const SizedBox hGap13 = SizedBox(height: 13);
   static const SizedBox hGap15 = SizedBox(height: 15);
   static const SizedBox hGap16 = SizedBox(height: 16);
   static const SizedBox hGap18 = SizedBox(height: 18);

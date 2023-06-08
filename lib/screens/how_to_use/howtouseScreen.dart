@@ -102,11 +102,13 @@ class _HowToUseAppPageScreenState extends State<HowToUseAppPageScreen> {
                           color: AppColors.container3,
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(30))),
+                      
                       child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            AppGaps.hGap8,
                             SizedBox(
                               height: 216,
                               /* <---- Intro screens ----> */
@@ -143,7 +145,7 @@ class _HowToUseAppPageScreenState extends State<HowToUseAppPageScreen> {
                                     dotColor: AppColors.bodyTextColor),
                               ),
                             ),
-                            AppGaps.hGap30,
+                            AppGaps.hGap15,
                           ]),
                     ),
                     // AppGaps.hGap30,
@@ -157,9 +159,11 @@ class _HowToUseAppPageScreenState extends State<HowToUseAppPageScreen> {
       ),
       /* <-------- Bottom bar --------> */
       bottomNavigationBar: CustomScaffoldBottomBarWidget(
-          backgroundColor: AppColors.container2,
+          backgroundColor: AppColors.container3,
           child: CustomStretchedButtonWidget4(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, AppPageNames.homeNavigatorScreen);
+            },
             child: const Text('Close'),
           )),
     );

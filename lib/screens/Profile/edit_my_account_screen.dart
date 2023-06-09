@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 
 import '../../utils/constants/app_colors.dart';
 import '../../utils/constants/app_gaps.dart';
 import '../../utils/constants/app_images.dart';
 import '../../widgets/core_widgets.dart';
 
-class EditMyAccountScreen extends StatelessWidget {
+class EditMyAccountScreen extends StatefulWidget {
   const EditMyAccountScreen({Key? key}) : super(key: key);
+
+  @override
+  State<EditMyAccountScreen> createState() => _EditMyAccountScreenState();
+}
+
+class _EditMyAccountScreenState extends State<EditMyAccountScreen> {
+  int? selectedGender;
+  
+  DateTime? selectedDate;
 
   @override
   Widget build(BuildContext context) {
@@ -134,25 +144,102 @@ class EditMyAccountScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Expanded(
-                                /* <---- Expiration date text field ----> */
-                                child: CustomTextFormField(
-                                  labelText: 'Date of Birth',
-                                  prefixIcon: SvgPicture.asset(
-                                      AppAssetImages.calenderSVGLogoLine),
-                                  hintText: '2000/01/01',
-                                  textInputType: TextInputType.datetime,
-                                ),
-                              ),
+                                  /* <---- Expiration date text field ----> */
+                                  child: CustomTextFormField(
+                                isReadOnly: true,
+                                onTap: () async {
+                                  final pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate:
+                                        DateTime(DateTime.now().year - 100),
+                                    lastDate: DateTime.now(),
+                                  );
+
+                                  if (pickedDate != null) {
+                                    setState(() {
+                                      selectedDate =
+                                          pickedDate; // Assign the selected date
+                                    });
+                                  }
+                                },
+                                labelText: 'Date of birth',
+                                hintText: selectedDate != null
+                                    ? DateFormat('yyyy-MM-dd').format(
+                                        selectedDate!) // Display the selected date
+                                    : '2000-06-06',
+                                prefixIcon: SvgPicture.asset(
+                                    AppAssetImages.calenderSVGLogoLine),
+                                
+                              )),
                               AppGaps.wGap10,
                               Expanded(
                                 /* <---- CVV text field ----> */
                                 child: CustomTextFormField(
-                                  labelText: 'Gender',
-                                  prefixIcon: SvgPicture.asset(
-                                      AppAssetImages.profileSVGLogoLine),
-                                  hintText: 'Male',
-                                  textInputType: TextInputType.text,
+                            isReadOnly: true,
+                            labelText: 'Gender',
+                            hintText: getGenderText(selectedGender),
+                            prefixIcon: SvgPicture.asset(AppAssetImages.profileSVGLogoLine),
+                            suffixIcon: PopupMenuButton<int>(
+                              padding: const EdgeInsets.only(right: 5),
+                              position: PopupMenuPosition.under,
+                              child: CustomIconButtonWidget(
+                                fixedSize: const Size(20, 20),
+                                child: SvgPicture.asset(
+                                  AppAssetImages.arrowDownSVGLogoLine,
+                                  height: 12,
+                                  color: AppColors.primaryColor,
                                 ),
+                              ),
+                              itemBuilder: (context) => [
+                                PopupMenuItem<int>(
+                                  value: 0,
+                                  child: const Text(
+                                    'Others',
+                                    style: TextStyle(
+                                      color: AppColors.primaryColor,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      selectedGender = 0;
+                                    });
+                                  },
+                                ),
+                                PopupMenuItem<int>(
+                                  value: 1,
+                                  child: const Text(
+                                    'Male',
+                                    style: TextStyle(
+                                      color: AppColors.primaryColor,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      selectedGender = 1;
+                                    });
+                                  },
+                                ),
+                                PopupMenuItem<int>(
+                                  value: 2,
+                                  child: const Text(
+                                    'Female',
+                                    style: TextStyle(
+                                      color: AppColors.primaryColor,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      selectedGender = 2;
+                                    });
+                                  },
+                                )
+                              ],
+                            ),
+                          ),
                               )
                             ],
                           ),
@@ -194,5 +281,18 @@ class EditMyAccountScreen extends StatelessWidget {
         child: const Text('Save changes'),
       )),
     );
+  }
+
+  String getGenderText(int? gender) {
+    switch (gender) {
+      case 0:
+        return 'Others';
+      case 1:
+        return 'Male';
+      case 2:
+        return 'Female';
+      default:
+        return 'Others';
+    }
   }
 }

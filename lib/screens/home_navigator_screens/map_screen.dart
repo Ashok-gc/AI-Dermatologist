@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../utils/constants/app_constants.dart';
@@ -12,6 +11,26 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  // GoogleMapController? mapController;
+  // Set<Marker> markers = {};
+  // LatLng myLocation = const LatLng(27.719374, 85.344079);
+
+  // @override
+  // void initState() {
+  //   _checkUserPermission();
+  //   markers.add(Marker(
+  //     markerId: MarkerId(myLocation.toString()),
+  //     position: myLocation,
+  //     infoWindow: const InfoWindow(title: 'AgroLink', snippet: 'AgroLink'),
+  //     icon: BitmapDescriptor.defaultMarker,
+  //   ));
+  //   super.initState();
+  // }
+
+  // _checkUserPermission() async {
+  //   await UserPermission.requestLocationPermission();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,13 +74,32 @@ class _MapScreenState extends State<MapScreen> {
                   color: AppColors.container,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
                 ),
+                // child: GoogleMap(
+                //   // mapType: MapType.normal,
+                //   // initialCameraPosition: CameraPosition(
+                //   //   target: myLocation,
+                //   //   zoom: 14,
+                //   // ),
+                //   // onMapCreated: (GoogleMapController controller) {
+                //   //   mapController = controller;
+                //   // },
+                //   // markers: markers,
+                //   zoomGesturesEnabled: true,
+                //   initialCameraPosition:
+                //       CameraPosition(target: myLocation, zoom: 10),
+                //   markers: markers,
+                //   mapType: MapType.normal,
+                //   onMapCreated: (controller) {
+                //     setState(() {
+                //       mapController = controller;
+                //     });
+                //   },
+                ),
               ),
-            ),
+            
           ],
         ),
       ),
     );
   }
 }
-
-

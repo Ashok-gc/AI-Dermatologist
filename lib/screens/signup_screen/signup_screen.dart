@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 
 import '../../utils/constants/app_colors.dart';
 import '../../utils/constants/app_gaps.dart';
@@ -21,11 +22,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   /// Toggle value of agree terms and conditions
   bool _toggleAgreeTermsConditions = false;
 
+  int? selectedGender;
+
+  DateTime? selectedDate;
+
   @override
   Widget build(BuildContext context) {
     /// Get screen size
     final screenSize = MediaQuery.of(context).size;
-    
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       /* <-------- Empty appbar with back button --------> */
@@ -35,20 +40,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           children: [
             const SizedBox(height: 20), // Add desired spacing
-                  const Center(
-                    child: HighlightAndDetailTextWidget(
-                      isSpaceShorter: true,
-                      slogan: 'Getting Started',
-                      subtitle: 'Hello there, sign up to continue',
-                    ),
-                  ),
-              AppGaps.hGap24,
+            const Center(
+              child: HighlightAndDetailTextWidget(
+                isSpaceShorter: true,
+                slogan: 'Getting Started',
+                subtitle: 'Hello there, sign up to continue',
+              ),
+            ),
+            AppGaps.hGap24,
             Container(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: AppGaps.screenPaddingValue),
-                  decoration: const BoxDecoration(
-                      color: AppColors.container,
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
+              // padding: const EdgeInsets.symmetric(
+              //     horizontal: AppGaps.screenPaddingValue),
+              decoration: const BoxDecoration(
+                  color: AppColors.container,
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(30))),
               child: Center(
                 child: SingleChildScrollView(
                   child: Padding(
@@ -61,68 +67,146 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         AppGaps.hGap24,
                         /* <---- User full name text field ----> */
                         Row(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            /* <---- Expiration date text field ----> */
-                            child: CustomTextFormField(
-                              labelText: 'First Name',
-                              prefixIcon:
-                                  SvgPicture.asset(AppAssetImages.profileSVGLogoLine),
-                              hintText: 'Ram',
-                              textInputType: TextInputType.text,
-                            ),
-                          ),
-                          AppGaps.wGap10,
-                          Expanded(
-                            /* <---- CVV text field ----> */
-                            child: CustomTextFormField(
-                              labelText: 'Last Name',
-                              prefixIcon:
-                                  SvgPicture.asset(AppAssetImages.profileSVGLogoLine),
-                              hintText: 'Sharma',
-                              textInputType: TextInputType.text,
-                            ),
-                          )
-                        ]),
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                /* <---- Expiration date text field ----> */
+                                child: CustomTextFormField(
+                                  labelText: 'First Name',
+                                  prefixIcon: SvgPicture.asset(
+                                      AppAssetImages.profileSVGLogoLine),
+                                  hintText: 'Ram',
+                                  textInputType: TextInputType.text,
+                                ),
+                              ),
+                              AppGaps.wGap10,
+                              Expanded(
+                                /* <---- CVV text field ----> */
+                                child: CustomTextFormField(
+                                  labelText: 'Last Name',
+                                  prefixIcon: SvgPicture.asset(
+                                      AppAssetImages.profileSVGLogoLine),
+                                  hintText: 'Sharma',
+                                  textInputType: TextInputType.text,
+                                ),
+                              )
+                            ]),
                         AppGaps.hGap24,
                         Row(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            /* <---- Expiration date text field ----> */
-                            child: CustomTextFormField(
-                              labelText: 'Date of Birth',
-                              prefixIcon:
-                                  SvgPicture.asset(AppAssetImages.calenderSVGLogoLine),
-                              hintText: '2000/01/01',
-                              textInputType: TextInputType.datetime,
-                            ),
-                          ),
-                          AppGaps.wGap10,
-                          Expanded(
-                            /* <---- CVV text field ----> */
-                            child: CustomTextFormField(
-                              labelText: 'Gender',
-                              prefixIcon:
-                                  SvgPicture.asset(AppAssetImages.profileSVGLogoLine),
-                              hintText: 'Male',
-                              textInputType: TextInputType.text,
-                            ),
-                          )
-                        ]),
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                  /* <---- Expiration date text field ----> */
+                                  child: CustomTextFormField(
+                                isReadOnly: true,
+                                onTap: () async {
+                                  final pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate:
+                                        DateTime(DateTime.now().year - 100),
+                                    lastDate: DateTime.now(),
+                                  );
+
+                                  if (pickedDate != null) {
+                                    setState(() {
+                                      selectedDate =
+                                          pickedDate; // Assign the selected date
+                                    });
+                                  }
+                                },
+                                labelText: 'Date of birth',
+                                hintText: selectedDate != null
+                                    ? DateFormat('yyyy-MM-dd').format(
+                                        selectedDate!) // Display the selected date
+                                    : '2000-06-06',
+                                prefixIcon: SvgPicture.asset(
+                                    AppAssetImages.calenderSVGLogoLine),
+                                
+                              )),
+                              AppGaps.wGap10,
+                              Expanded(
+                                /* <---- CVV text field ----> */
+                                child: CustomTextFormField(
+                                  isReadOnly: true,
+                                  labelText: 'Gender',
+                                  hintText: getGenderText(selectedGender),
+                                  prefixIcon: SvgPicture.asset(
+                                      AppAssetImages.profileSVGLogoLine),
+                                  suffixIcon: PopupMenuButton<int>(
+                                    padding: const EdgeInsets.only(right: 5),
+                                    position: PopupMenuPosition.under,
+                                    child: CustomIconButtonWidget(
+                                      fixedSize: const Size(20, 20),
+                                      child: SvgPicture.asset(
+                                        AppAssetImages.arrowDownSVGLogoLine,
+                                        height: 12,
+                                        color: AppColors.primaryColor,
+                                      ),
+                                    ),
+                                    itemBuilder: (context) => [
+                                      PopupMenuItem<int>(
+                                        value: 0,
+                                        child: const Text(
+                                          'Others',
+                                          style: TextStyle(
+                                            color: AppColors.primaryColor,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        onTap: () {
+                                          setState(() {
+                                            selectedGender = 0;
+                                          });
+                                        },
+                                      ),
+                                      PopupMenuItem<int>(
+                                        value: 1,
+                                        child: const Text(
+                                          'Male',
+                                          style: TextStyle(
+                                            color: AppColors.primaryColor,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        onTap: () {
+                                          setState(() {
+                                            selectedGender = 1;
+                                          });
+                                        },
+                                      ),
+                                      PopupMenuItem<int>(
+                                        value: 2,
+                                        child: const Text(
+                                          'Female',
+                                          style: TextStyle(
+                                            color: AppColors.primaryColor,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        onTap: () {
+                                          setState(() {
+                                            selectedGender = 2;
+                                          });
+                                        },
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ]),
                         AppGaps.hGap24,
                         /* <---- Email text field ----> */
                         CustomTextFormField(
                           labelText: 'Email address',
                           hintText: 'contact@gmail.com',
-                          prefixIcon:
-                              SvgPicture.asset(AppAssetImages.messageSVGLogoLine),
+                          prefixIcon: SvgPicture.asset(
+                              AppAssetImages.messageSVGLogoLine),
                         ),
                         AppGaps.hGap24,
-                         /* <----  Phone number field ----> */
+                        /* <----  Phone number field ----> */
                         CustomTextFormField(
                           labelText: 'Phone Number',
                           hintText: '98XXXXXXXX',
@@ -136,17 +220,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           isPasswordTextField: _toggleHidePassword,
                           labelText: 'Password',
                           hintText: '********',
-                          prefixIcon:
-                              SvgPicture.asset(AppAssetImages.unlockSVGLogoLine),
+                          prefixIcon: SvgPicture.asset(
+                              AppAssetImages.unlockSVGLogoLine),
                           suffixIcon: IconButton(
                               padding: EdgeInsets.zero,
                               visualDensity: const VisualDensity(
                                   horizontal: VisualDensity.minimumDensity,
                                   vertical: VisualDensity.minimumDensity),
                               color: Colors.transparent,
-                              onPressed: () => setState(
-                                  () => _toggleHidePassword = !_toggleHidePassword),
-                              icon: SvgPicture.asset(AppAssetImages.hideSVGLogoLine,
+                              onPressed: () => setState(() =>
+                                  _toggleHidePassword = !_toggleHidePassword),
+                              icon: SvgPicture.asset(
+                                  AppAssetImages.hideSVGLogoLine,
                                   color: _toggleHidePassword
                                       ? AppColors.bodyTextColor
                                       : AppColors.primaryColor)),
@@ -169,10 +254,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         MaterialTapTargetSize.shrinkWrap,
                                     visualDensity: VisualDensity.compact,
                                     shape: const RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(5))),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(5))),
                                     onChanged: (value) => setState(() =>
-                                        _toggleAgreeTermsConditions = value ?? false)),
+                                        _toggleAgreeTermsConditions =
+                                            value ?? false)),
                               ),
                             ),
                             AppGaps.wGap16,
@@ -180,12 +266,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: Wrap(
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
-                                  const Text('By signing up, I agree to the',
-                                  
-                          
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                  ),),
+                                  const Text(
+                                    'By signing up, I agree to the',
+                                    style: TextStyle(
+                                      color: AppColors.black,
+                                    ),
+                                  ),
                                   CustomTightTextButtonWidget(
                                       onTap: () {},
                                       child: Text(
@@ -193,12 +279,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium
-                                            ?.copyWith(color: AppColors.tertiaryColor),
+                                            ?.copyWith(
+                                                color: AppColors.tertiaryColor),
                                       )),
-                                  const Text(' and ',
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                  ),),
+                                  const Text(
+                                    ' and ',
+                                    style: TextStyle(
+                                      color: AppColors.black,
+                                    ),
+                                  ),
                                   CustomTightTextButtonWidget(
                                       onTap: () {},
                                       child: Text(
@@ -206,7 +295,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium
-                                            ?.copyWith(color: AppColors.tertiaryColor),
+                                            ?.copyWith(
+                                                color: AppColors.tertiaryColor),
                                       )),
                                 ],
                               ),
@@ -220,17 +310,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-              
             ),
           ],
         ),
       ),
 
-      
       /* <-------- Bottom bar of sign up and sign in button --------> */
       bottomNavigationBar: CustomScaffoldBottomBarWidget(
         border: const Border(
-          top: BorderSide(color: AppColors.primaryColor, width: 1.5)),
+            top: BorderSide(color: AppColors.primaryColor, width: 1.5)),
         backgroundColor: AppColors.container,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -241,8 +329,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 buttonText: 'Sign up',
                 onTap: _toggleAgreeTermsConditions
                     ? () {
-                        Navigator.pushNamed(
-                            context, AppPageNames.signInScreen);
+                        Navigator.pushNamed(context, AppPageNames.signInScreen);
                       }
                     : null),
             AppGaps.hGap5,
@@ -257,8 +344,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 /* <---- Sign in TextButton ----> */
                 CustomTightTextButtonWidget(
                   onTap: () {
-                   Navigator.pushNamed(
-                            context, AppPageNames.signInScreen);
+                    Navigator.pushNamed(context, AppPageNames.signInScreen);
                   },
                   child: Text('Sign In',
                       style: Theme.of(context)
@@ -272,5 +358,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+
+  String getGenderText(int? gender) {
+    switch (gender) {
+      case 0:
+        return 'Others';
+      case 1:
+        return 'Male';
+      case 2:
+        return 'Female';
+      default:
+        return 'Others';
+    }
   }
 }

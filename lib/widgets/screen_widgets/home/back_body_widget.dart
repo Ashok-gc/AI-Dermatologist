@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/constants/app_page_names.dart';
+
 class BackBodyWidget extends StatelessWidget {
   const BackBodyWidget({super.key});
 
@@ -20,7 +22,9 @@ class BackBodyWidget extends StatelessWidget {
             child: CircleButtonWidget(
               value: '1', // Replace with the value you want to display
               onPressed: () {
-                // Handle circle button press
+                Navigator.pushNamed(
+                                context,
+                                AppPageNames.myHistoriesScreen);
               },
             ),
           ),
@@ -28,7 +32,7 @@ class BackBodyWidget extends StatelessWidget {
             top: 120, // Adjust the position according to your image
             left: 153,
             child: CircleButtonWidget(
-              value: '2', // Replace with the value you want to display
+              value: '0', // Replace with the value you want to display
               onPressed: () {
                 // Handle circle button press
               },
@@ -38,7 +42,7 @@ class BackBodyWidget extends StatelessWidget {
             top: 160, // Adjust the position according to your image
             left: 23,
             child: CircleButtonWidget(
-              value: '3', // Replace with the value you want to display
+              value: '0', // Replace with the value you want to display
               onPressed: () {
                 // Handle circle button press
               },
@@ -48,7 +52,7 @@ class BackBodyWidget extends StatelessWidget {
             top: 160, // Adjust the position according to your image
             left: 273,
             child: CircleButtonWidget(
-              value: '4', // Replace with the value you want to display
+              value: '0', // Replace with the value you want to display
               onPressed: () {
                 // Handle circle button press
               },
@@ -58,7 +62,7 @@ class BackBodyWidget extends StatelessWidget {
             top: 350, // Adjust the position according to your image
             left: 97,
             child: CircleButtonWidget(
-              value: '5', // Replace with the value you want to display
+              value: '0', // Replace with the value you want to display
               onPressed: () {
                 // Handle circle button press
               },
@@ -68,7 +72,7 @@ class BackBodyWidget extends StatelessWidget {
             top: 350, // Adjust the position according to your image
             left: 208,
             child: CircleButtonWidget(
-              value: '6', // Replace with the value you want to display
+              value: '0', // Replace with the value you want to display
               onPressed: () {
                 // Handle circle button press
               },

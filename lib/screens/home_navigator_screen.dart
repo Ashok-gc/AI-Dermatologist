@@ -1,5 +1,4 @@
 
-import 'package:ai_dermatologist/screens/home_navigator_screens/Detection_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/constants/app_constants.dart';
@@ -11,8 +10,6 @@ import 'home_navigator_screens/history_screen.dart';
 
 
 class HomeNavigatorScreen extends StatefulWidget {
-  /// The parameter variable argument holds screen index number to show that tab
-  /// screen initially.
   final Object? screenTabIndex;
   const HomeNavigatorScreen({Key? key, this.screenTabIndex}) : super(key: key);
 
@@ -21,13 +18,9 @@ class HomeNavigatorScreen extends StatefulWidget {
 }
 
 class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
-  /// Current page index
   int _currentPageIndex = 0;
-
-  /// Tabbed screen widget of selected tab
   Widget _nestedScreenWidget = const Scaffold();
 
-  /* <-------- Select current page index initially --------> */
   void _setCurrentPageIndex(Object? argument) {
     if (argument != null) {
       if (argument is int) {
@@ -36,22 +29,17 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
     }
   }
 
-  /* <-------- Select current tab screen --------> */
   void _setCurrentTab() {
     const int homeScreenIndex = 0;
     const int mapScreenIndex = 1;
-    const int detectionScreenIndex = 2;
-    const int historyScreenIndex = 3;
-    const int accountScreenIndex = 4;
+    const int historyScreenIndex = 2;
+    const int accountScreenIndex = 3;
     switch (_currentPageIndex) {
       case homeScreenIndex:
         _nestedScreenWidget = const HomeScreen();
         break;
       case mapScreenIndex:
         _nestedScreenWidget = const MapScreen();
-        break;
-      case detectionScreenIndex:
-        _nestedScreenWidget = const DetectionScreen();
         break;
       case historyScreenIndex:
         _nestedScreenWidget = const HistoryScreen();
@@ -60,12 +48,10 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
         _nestedScreenWidget = const MyAccountScreen();
         break;
       default:
-        // Invalid page index set tab to dashboard screen
         _nestedScreenWidget = const HomeScreen();
     }
   }
 
-  /* <-------- Initial state --------> */
   @override
   void initState() {
     _setCurrentPageIndex(widget.screenTabIndex);
@@ -77,53 +63,40 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.shadeColor2,
-      /* <-------- Content --------> */
       body: _nestedScreenWidget,
-      /* <-------- Bottom tab bar --------> */
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         child: CustomBottomNavigationBar(
           selectedIndex: _currentPageIndex,
           curve: Curves.easeOutBack,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.container3,
           itemCornerRadius: 10,
-          showElevation: false, // use this to remove appBar's elevation
+          showElevation: false,
           onItemSelected: (selectedPageIndex) => setState(() {
-            // Set current index and tab screen
             _currentPageIndex = selectedPageIndex;
             _setCurrentTab();
           }),
           items: [
-            /* <---- 'Home' button ----> */
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.homeSVGLogoLine,
               labelText: 'Home',
               width: 100,
               inactiveColor: AppColors.bodyTextColor,
             ),
-            /* <---- 'Map' button ----> */
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.mapSVGLogoLine,
               labelText: 'Map',
               width: 90,
               inactiveColor: AppColors.bodyTextColor,
             ),
-            /* <---- 'Detection' button ----> */
-            CustomBottomNavigationBarItem(
-              svgAssetIconName: AppAssetImages.cameraSVGLogoLine,
-              labelText: 'Detection',
-              width: 110,
-              inactiveColor: AppColors.bodyTextColor,
-            ),
-            /* <---- 'My History' button ----> */
+
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.taskSVGLogoLine,
               labelText: 'My History',
               width: 120,
               inactiveColor: AppColors.bodyTextColor,
             ),
-            /* <---- 'Account' button ----> */
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.profileSVGLogoLine,
               labelText: 'Account',

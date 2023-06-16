@@ -64,7 +64,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bgColor = backgroundColor ?? Theme.of(context).bottomAppBarColor;
-
+    const notchMargin = 8.0; // Define the desired notch margin
     return DecoratedBox(
       decoration: BoxDecoration(
         color: bgColor,
@@ -77,36 +77,70 @@ class CustomBottomNavigationBar extends StatelessWidget {
         ],
       ),
       child: SafeArea(
-        child: SizedBox(
-          // width: double.infinity,
-          height: containerHeight,
-          // padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-          child: Row(
-            mainAxisAlignment: mainAxisAlignment,
-            mainAxisSize: MainAxisSize.max,
-            children: items.map((item) {
-              var index = items.indexOf(item);
-              return GestureDetector(
-                onTap: () => onItemSelected(index),
-                child: _ItemWidget(
-                  item: item,
-                  iconSize: iconSize,
-                  isSelected: index == selectedIndex,
-                  backgroundColor: bgColor,
-                  itemCornerRadius: itemCornerRadius,
-                  animationDuration: animationDuration,
-                  badgeNumber: item.badgeNumber,
-                  width: item.width,
-                  curve: curve,
-                ),
-              );
-            }).toList(),
-          ),
+        child: Stack(
+          children: [
+            SizedBox(
+              height: containerHeight,
+              child: Row(
+                mainAxisAlignment: mainAxisAlignment,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  // First row: Two icons on the left
+                  ...items
+                      .sublist(0, 2)
+                      .map((item) => GestureDetector(
+                            onTap: () => onItemSelected(items.indexOf(item)),
+                            child: _ItemWidget(
+                              item: item,
+                              iconSize: iconSize,
+                              isSelected: items.indexOf(item) == selectedIndex,
+                              backgroundColor: bgColor,
+                              itemCornerRadius: itemCornerRadius,
+                              animationDuration: animationDuration,
+                              badgeNumber: item.badgeNumber,
+                              width: item.width,
+                              curve: curve,
+                            ),
+                          )),
+                  const Spacer(), // Adds flexible space between the two rows
+                  // Second row: Two icons on the right
+                  ...items
+                      .sublist(2, 4)
+                      .map((item) => GestureDetector(
+                            onTap: () => onItemSelected(items.indexOf(item)),
+                            child: _ItemWidget(
+                              item: item,
+                              iconSize: iconSize,
+                              isSelected: items.indexOf(item) == selectedIndex,
+                              backgroundColor: bgColor,
+                              itemCornerRadius: itemCornerRadius,
+                              animationDuration: animationDuration,
+                              badgeNumber: item.badgeNumber,
+                              width: item.width,
+                              curve: curve,
+                            ),
+                          )),
+                ],
+              ),
+            ),
+            Positioned(
+              left: (MediaQuery.of(context).size.width - 56) / 2, // Adjust the value based on the FAB size
+              bottom: -(MediaQuery.of(context).padding.bottom - 28), // Offset to show half in navigation bar and half outside screen
+              child: FloatingActionButton(
+                onPressed: () {
+                  // Handle FAB button press
+                },
+                backgroundColor: AppColors.primaryColor,
+                child: const Icon(Icons.camera_alt_outlined),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
 
 class _ItemWidget extends StatelessWidget {
   final double iconSize;
@@ -118,6 +152,7 @@ class _ItemWidget extends StatelessWidget {
   final Duration animationDuration;
   final int badgeNumber;
   final Curve curve;
+  
 
   const _ItemWidget({
     Key? key,

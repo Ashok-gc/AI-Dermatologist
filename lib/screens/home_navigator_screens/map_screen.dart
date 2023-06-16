@@ -74,30 +74,30 @@ class _MapScreenState extends State<MapScreen> {
                   color: AppColors.container,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
                 ),
-                child: GoogleMap(
-                  // mapType: MapType.normal,
-                  // initialCameraPosition: CameraPosition(
-                  //   target: myLocation,
-                  //   zoom: 14,
-                  // ),
-                  // onMapCreated: (GoogleMapController controller) {
-                  //   mapController = controller;
-                  // },
-                  // markers: markers,
-                  zoomGesturesEnabled: true,
-                  initialCameraPosition:
-                      CameraPo.sition(target: myLocation, zoom: 10),
-                  markers: markers,
-                  mapType: MapType.normal,
-                  onMapCreated: (controller) {
-                    setState(() {
-                      mapController = controller;
-                    });
-                  },
-                ),
+                // child: GoogleMap(
+                //   // mapType: MapType.normal,
+                //   // initialCameraPosition: CameraPosition(
+                //   //   target: myLocation,
+                //   //   zoom: 14,
+                //   // ),
+                //   // onMapCreated: (GoogleMapController controller) {
+                //   //   mapController = controller;
+                //   // },
+                //   // markers: markers,
+                //   zoomGesturesEnabled: true,
+                //   initialCameraPosition:
+                //       CameraPo.sition(target: myLocation, zoom: 10),
+                //   markers: markers,
+                //   mapType: MapType.normal,
+                //   onMapCreated: (controller) {
+                //     setState(() {
+                //       mapController = controller;
+                //     });
+                //   },
+                // ),
               ),
             
-          ],
+        )],
         ),
       ),
     );

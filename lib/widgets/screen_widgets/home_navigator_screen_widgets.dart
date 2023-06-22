@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -65,6 +64,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final bgColor = backgroundColor ?? Theme.of(context).bottomAppBarColor;
     const notchMargin = 8.0; // Define the desired notch margin
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: bgColor,
@@ -86,52 +86,63 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   // First row: Two icons on the left
-                  ...items
-                      .sublist(0, 2)
-                      .map((item) => GestureDetector(
-                            onTap: () => onItemSelected(items.indexOf(item)),
-                            child: _ItemWidget(
-                              item: item,
-                              iconSize: iconSize,
-                              isSelected: items.indexOf(item) == selectedIndex,
-                              backgroundColor: bgColor,
-                              itemCornerRadius: itemCornerRadius,
-                              animationDuration: animationDuration,
-                              badgeNumber: item.badgeNumber,
-                              width: item.width,
-                              curve: curve,
-                            ),
-                          )),
-                  const Spacer(), // Adds flexible space between the two rows
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: items.sublist(0, 2).map((item) {
+                        final isSelected = items.indexOf(item) == selectedIndex;
+                        return GestureDetector(
+                          onTap: () => onItemSelected(items.indexOf(item)),
+                          child: _ItemWidget(
+                            item: item,
+                            iconSize: iconSize,
+                            isSelected: isSelected,
+                            backgroundColor: bgColor,
+                            itemCornerRadius: itemCornerRadius,
+                            animationDuration: animationDuration,
+                            badgeNumber: item.badgeNumber,
+                            width: item.width,
+                            curve: curve,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  // FAB icon in the middle
+                  SizedBox(
+                    width: 56, // Adjust the width of the FAB button as needed
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        // Handle FAB button press
+                      },
+                      backgroundColor: AppColors.primaryColor,
+                      child: const Icon(Icons.camera_alt_outlined),
+                    ),
+                  ),
                   // Second row: Two icons on the right
-                  ...items
-                      .sublist(2, 4)
-                      .map((item) => GestureDetector(
-                            onTap: () => onItemSelected(items.indexOf(item)),
-                            child: _ItemWidget(
-                              item: item,
-                              iconSize: iconSize,
-                              isSelected: items.indexOf(item) == selectedIndex,
-                              backgroundColor: bgColor,
-                              itemCornerRadius: itemCornerRadius,
-                              animationDuration: animationDuration,
-                              badgeNumber: item.badgeNumber,
-                              width: item.width,
-                              curve: curve,
-                            ),
-                          )),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: items.sublist(2, 4).map((item) {
+                        final isSelected = items.indexOf(item) == selectedIndex;
+                        return GestureDetector(
+                          onTap: () => onItemSelected(items.indexOf(item)),
+                          child: _ItemWidget(
+                            item: item,
+                            iconSize: iconSize,
+                            isSelected: isSelected,
+                            backgroundColor: bgColor,
+                            itemCornerRadius: itemCornerRadius,
+                            animationDuration: animationDuration,
+                            badgeNumber: item.badgeNumber,
+                            width: item.width,
+                            curve: curve,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
                 ],
-              ),
-            ),
-            Positioned(
-              left: (MediaQuery.of(context).size.width - 56) / 2, // Adjust the value based on the FAB size
-              bottom: -(MediaQuery.of(context).padding.bottom - 28), // Offset to show half in navigation bar and half outside screen
-              child: FloatingActionButton(
-                onPressed: () {
-                  // Handle FAB button press
-                },
-                backgroundColor: AppColors.primaryColor,
-                child: const Icon(Icons.camera_alt_outlined),
               ),
             ),
           ],
@@ -140,7 +151,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
-
 
 class _ItemWidget extends StatelessWidget {
   final double iconSize;
@@ -152,7 +162,6 @@ class _ItemWidget extends StatelessWidget {
   final Duration animationDuration;
   final int badgeNumber;
   final Curve curve;
-  
 
   const _ItemWidget({
     Key? key,
@@ -168,126 +177,129 @@ class _ItemWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      container: true,
-      selected: isSelected,
-      child: badgeNumber < 1
-          ? AnimatedContainer(
-              width: isSelected ? width : 45,
-              height: 40,
-              duration: animationDuration,
-              curve: curve,
-              decoration: BoxDecoration(
-                color: isSelected ? item.activeColor : backgroundColor,
-                borderRadius: BorderRadius.circular(itemCornerRadius),
-              ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const NeverScrollableScrollPhysics(),
-                child: Container(
-                  height: 40,
-                  width: isSelected ? 130 : 50,
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  alignment: Alignment.centerLeft,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      SvgPicture.asset(item.svgAssetIconName,
-                          color: isSelected
-                              ? Colors.white
-                              : item.inactiveColor ?? item.activeColor),
-                      if (isSelected) AppGaps.wGap8,
-                      if (isSelected)
-                        Expanded(
-                          child: Container(
-                            // padding: EdgeInsets.symmetric(horizontal: 4),
-                            child: DefaultTextStyle.merge(
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
-                              maxLines: 1,
-                              textAlign: item.textAlign,
-                              child: Text(item.labelText),
+Widget build(BuildContext context) {
+  return Semantics(
+    container: true,
+    selected: isSelected,
+    child: badgeNumber < 1
+        ? AnimatedContainer(
+            width: isSelected ? width : 45,
+            height: 40,
+            duration: animationDuration,
+            curve: curve,
+            decoration: BoxDecoration(
+              color: isSelected ? item.activeColor : backgroundColor,
+              borderRadius: BorderRadius.circular(itemCornerRadius),
+            ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const NeverScrollableScrollPhysics(),
+              child: Container(
+                height: 40,
+                width: isSelected ? 130 : 50,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center, // Updated alignment to center
+                  crossAxisAlignment: CrossAxisAlignment.center, // Updated alignment to center
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      item.svgAssetIconName,
+                      color: isSelected
+                          ? Colors.white
+                          : item.inactiveColor ?? item.activeColor,
+                    ),
+                    if (isSelected) AppGaps.wGap8,
+                    if (isSelected)
+                      Expanded(
+                        child: Container(
+                          child: DefaultTextStyle.merge(
+                            style: const TextStyle(
+                              color: Colors.white,
                             ),
+                            maxLines: 1,
+                            textAlign: item.textAlign,
+                            child: Text(item.labelText),
                           ),
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
                 ),
               ),
-            )
-          : Stack(
-              clipBehavior: Clip.none,
-              children: [
-                AnimatedContainer(
-                  width: isSelected ? width : 45,
-                  height: 40,
-                  duration: animationDuration,
-                  curve: curve,
-                  decoration: BoxDecoration(
-                    color: isSelected ? item.activeColor : backgroundColor,
-                    borderRadius: BorderRadius.circular(itemCornerRadius),
-                  ),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    physics: const NeverScrollableScrollPhysics(),
-                    child: Container(
-                      height: 40,
-                      width: isSelected ? 130 : 50,
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          SvgPicture.asset(item.svgAssetIconName,
-                              color: isSelected
-                                  ? Colors.white
-                                  : item.inactiveColor ?? item.activeColor),
-                          if (isSelected) AppGaps.wGap8,
-                          if (isSelected)
-                            Expanded(
-                              child: Container(
-                                // padding: const EdgeInsets.symmetric(horizontal: 4),
-                                child: DefaultTextStyle.merge(
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    // fontWeight: FontWeight.bold,
-                                  ),
-                                  maxLines: 1,
-                                  textAlign: item.textAlign,
-                                  child: Text(item.labelText),
+            ),
+          )
+        : Stack(
+            clipBehavior: Clip.none,
+            children: [
+              AnimatedContainer(
+                width: isSelected ? width : 45,
+                height: 40,
+                duration: animationDuration,
+                curve: curve,
+                decoration: BoxDecoration(
+                  color: isSelected ? item.activeColor : backgroundColor,
+                  borderRadius: BorderRadius.circular(itemCornerRadius),
+                ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const NeverScrollableScrollPhysics(),
+                  child: Container(
+                    height: 40,
+                    width: isSelected ? 130 : 50,
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center, // Updated alignment to center
+                      crossAxisAlignment: CrossAxisAlignment.center, // Updated alignment to center
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          item.svgAssetIconName,
+                          color: isSelected
+                              ? Colors.white
+                              : item.inactiveColor ?? item.activeColor,
+                        ),
+                        if (isSelected) AppGaps.wGap8,
+                        if (isSelected)
+                          Expanded(
+                            child: Container(
+                              child: DefaultTextStyle.merge(
+                                style: const TextStyle(
+                                  color: Colors.white,
                                 ),
+                                maxLines: 1,
+                                textAlign: item.textAlign,
+                                child: Text(item.labelText),
                               ),
                             ),
-                        ],
-                      ),
+                          ),
+                      ],
                     ),
                   ),
                 ),
-                Positioned(
-                    top: -10,
-                    right: -3,
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.primaryColor,
-                          border: Border.all(color: Colors.white, width: 2)),
-                      child: Text(
-                        '${badgeNumber > 99 ? '99+' : badgeNumber}',
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 10),
-                      ),
-                    ))
-              ],
-            ),
-    );
-  }
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                top: -28, // Adjust the top value to position the FAB
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 56,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      // Handle FAB button press
+                    },
+                    backgroundColor: AppColors.primaryColor,
+                    child: const Icon(Icons.camera_alt_outlined),
+                  ),
+                ),
+              ),
+            ],
+          ),
+  );
+}
+
 }
 
 /// The [CustomBottomNavigationBar.items] definition.

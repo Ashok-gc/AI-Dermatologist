@@ -93,7 +93,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
 
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.taskSVGLogoLine,
-              labelText: 'My History',
+              labelText: 'History',
               width: 120,
               inactiveColor: AppColors.bodyTextColor,
             ),

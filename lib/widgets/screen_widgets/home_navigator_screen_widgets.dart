@@ -177,129 +177,132 @@ class _ItemWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-Widget build(BuildContext context) {
-  return Semantics(
-    container: true,
-    selected: isSelected,
-    child: badgeNumber < 1
-        ? AnimatedContainer(
-            width: isSelected ? width : 45,
-            height: 40,
-            duration: animationDuration,
-            curve: curve,
-            decoration: BoxDecoration(
-              color: isSelected ? item.activeColor : backgroundColor,
-              borderRadius: BorderRadius.circular(itemCornerRadius),
-            ),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              physics: const NeverScrollableScrollPhysics(),
-              child: Container(
-                height: 40,
-                width: isSelected ? 130 : 50,
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                alignment: Alignment.centerLeft,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center, // Updated alignment to center
-                  crossAxisAlignment: CrossAxisAlignment.center, // Updated alignment to center
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      item.svgAssetIconName,
-                      color: isSelected
-                          ? Colors.white
-                          : item.inactiveColor ?? item.activeColor,
-                    ),
-                    if (isSelected) AppGaps.wGap8,
-                    if (isSelected)
-                      Expanded(
-                        child: Container(
-                          child: DefaultTextStyle.merge(
-                            style: const TextStyle(
-                              color: Colors.white,
+  Widget build(BuildContext context) {
+    return Semantics(
+      container: true,
+      selected: isSelected,
+      child: badgeNumber < 1
+          ? AnimatedContainer(
+              width: isSelected ? width : 40,
+              height: 40,
+              duration: animationDuration,
+              curve: curve,
+              decoration: BoxDecoration(
+                color: isSelected ? item.activeColor : backgroundColor,
+                borderRadius: BorderRadius.circular(itemCornerRadius),
+              ),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const NeverScrollableScrollPhysics(),
+                child: Container(
+                  height: 40,
+                  width: isSelected ? 130 : 50,
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment:
+                        MainAxisAlignment.center, // Updated alignment to center
+                    crossAxisAlignment: CrossAxisAlignment
+                        .center, // Updated alignment to center
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        item.svgAssetIconName,
+                        color: isSelected
+                            ? Colors.white
+                            : item.inactiveColor ?? item.activeColor,
+                      ),
+                      if (isSelected) AppGaps.wGap8,
+                      if (isSelected)
+                        Expanded(
+                          child: Container(
+                            child: DefaultTextStyle.merge(
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              maxLines: 1,
+                              textAlign: item.textAlign,
+                              child: Text(item.labelText),
                             ),
-                            maxLines: 1,
-                            textAlign: item.textAlign,
-                            child: Text(item.labelText),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          )
-        : Stack(
-            clipBehavior: Clip.none,
-            children: [
-              AnimatedContainer(
-                width: isSelected ? width : 45,
-                height: 40,
-                duration: animationDuration,
-                curve: curve,
-                decoration: BoxDecoration(
-                  color: isSelected ? item.activeColor : backgroundColor,
-                  borderRadius: BorderRadius.circular(itemCornerRadius),
-                ),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  physics: const NeverScrollableScrollPhysics(),
-                  child: Container(
-                    height: 40,
-                    width: isSelected ? 130 : 50,
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    alignment: Alignment.centerLeft,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center, // Updated alignment to center
-                      crossAxisAlignment: CrossAxisAlignment.center, // Updated alignment to center
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          item.svgAssetIconName,
-                          color: isSelected
-                              ? Colors.white
-                              : item.inactiveColor ?? item.activeColor,
-                        ),
-                        if (isSelected) AppGaps.wGap8,
-                        if (isSelected)
-                          Expanded(
-                            child: Container(
-                              child: DefaultTextStyle.merge(
-                                style: const TextStyle(
-                                  color: Colors.white,
+            )
+          : Stack(
+              clipBehavior: Clip.none,
+              children: [
+                AnimatedContainer(
+                  width: isSelected ? width : 45,
+                  height: 40,
+                  duration: animationDuration,
+                  curve: curve,
+                  decoration: BoxDecoration(
+                    color: isSelected ? item.activeColor : backgroundColor,
+                    borderRadius: BorderRadius.circular(itemCornerRadius),
+                  ),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const NeverScrollableScrollPhysics(),
+                    child: Container(
+                      height: 40,
+                      width: isSelected ? 130 : 50,
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      alignment: Alignment.centerLeft,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment
+                            .center, // Updated alignment to center
+                        crossAxisAlignment: CrossAxisAlignment
+                            .center, // Updated alignment to center
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            item.svgAssetIconName,
+                            color: isSelected
+                                ? Colors.white
+                                : item.inactiveColor ?? item.activeColor,
+                          ),
+                          if (isSelected) AppGaps.wGap8,
+                          if (isSelected)
+                            Expanded(
+                              child: Container(
+                                child: DefaultTextStyle.merge(
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  maxLines: 1,
+                                  textAlign: item.textAlign,
+                                  child: Text(item.labelText),
                                 ),
-                                maxLines: 1,
-                                textAlign: item.textAlign,
-                                child: Text(item.labelText),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                left: 0,
-                right: 0,
-                top: -28, // Adjust the top value to position the FAB
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 56,
-                  child: FloatingActionButton(
-                    onPressed: () {
-                      // Handle FAB button press
-                    },
-                    backgroundColor: AppColors.primaryColor,
-                    child: const Icon(Icons.camera_alt_outlined),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  top: -28, // Adjust the top value to position the FAB
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 36,
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        // Handle FAB button press
+                      },
+                      backgroundColor: AppColors.primaryColor,
+                      child: const Icon(Icons.camera_alt_outlined),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-  );
-}
-
+              ],
+            ),
+    );
+  }
 }
 
 /// The [CustomBottomNavigationBar.items] definition.

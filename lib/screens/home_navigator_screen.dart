@@ -62,7 +62,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.shadeColor2,
+      backgroundColor: const Color.fromARGB(229, 242, 245, 252),
       body: _nestedScreenWidget,
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
@@ -70,7 +70,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
           selectedIndex: _currentPageIndex,
           curve: Curves.easeOutBack,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          backgroundColor: AppColors.container3,
+          backgroundColor: const Color.fromARGB(229, 242, 245, 252),
           itemCornerRadius: 10,
           showElevation: false,
           onItemSelected: (selectedPageIndex) => setState(() {

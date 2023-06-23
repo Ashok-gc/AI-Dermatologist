@@ -3,9 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../utils/constants/app_constants.dart';
 
-/// A beautiful and animated bottom navigation that paints a rounded shape
-///
-/// [selectedIndex] is required and must not be null.
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({
     Key? key,
@@ -23,47 +20,22 @@ class CustomBottomNavigationBar extends StatelessWidget {
   })  : assert(items.length >= 2 && items.length <= 5),
         super(key: key);
 
-  /// The selected item is index. Changing this property will change and animate
-  /// the item being selected. Defaults to zero.
   final int selectedIndex;
-
-  /// The icon size of all items. Defaults to 24.
   final double iconSize;
-
-  /// The background color of the navigation bar. It defaults to
-  /// [Theme.bottomAppBarColor] if not provided.
   final Color? backgroundColor;
-
-  /// Whether this navigation bar should show a elevation. Defaults to true.
   final bool showElevation;
-
-  /// Use this to change the item's animation duration. Defaults to 270ms.
   final Duration animationDuration;
-
-  /// Defines the appearance of the buttons that are displayed in the bottom
-  /// navigation bar. This should have at least two items and five at most.
   final List<CustomBottomNavigationBarItem> items;
-
-  /// A callback that will be called when a item is pressed.
   final ValueChanged<int> onItemSelected;
-
-  /// Defines the alignment of the items.
-  /// Defaults to [MainAxisAlignment.spaceBetween].
   final MainAxisAlignment mainAxisAlignment;
-
-  /// The [items] corner radius, if not set, it defaults to 50.
   final double itemCornerRadius;
-
-  /// Defines the bottom navigation bar height. Defaults to 56.
   final double containerHeight;
-
-  /// Used to configure the animation curve. Defaults to [Curves.linear].
   final Curve curve;
 
   @override
   Widget build(BuildContext context) {
     final bgColor = backgroundColor ?? Theme.of(context).bottomAppBarColor;
-    const notchMargin = 8.0; // Define the desired notch margin
+    const notchMargin = 8.0;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -85,7 +57,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 mainAxisAlignment: mainAxisAlignment,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  // First row: Two icons on the left
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -108,18 +79,34 @@ class CustomBottomNavigationBar extends StatelessWidget {
                       }).toList(),
                     ),
                   ),
-                  // FAB icon in the middle
                   SizedBox(
-                    width: 56, // Adjust the width of the FAB button as needed
+                    width: 56,
                     child: FloatingActionButton(
                       onPressed: () {
-                        // Handle FAB button press
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return CustomNavigationBarOptions(
+                              onCameraPressed: () {
+                                // Handle open camera action
+                                Navigator.pop(context);
+                              },
+                              onGalleryPressed: () {
+                                // Handle open gallery action
+                                Navigator.pop(context);
+                              },
+                              onCancelPressed: () {
+                                // Handle cancel action
+                                Navigator.pop(context);
+                              },
+                            );
+                          },
+                        );
                       },
                       backgroundColor: AppColors.primaryColor,
                       child: const Icon(Icons.camera_alt_outlined),
                     ),
                   ),
-                  // Second row: Two icons on the right
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -151,6 +138,47 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
+
+class CustomNavigationBarOptions extends StatelessWidget {
+  final VoidCallback? onCameraPressed;
+  final VoidCallback? onGalleryPressed;
+  final VoidCallback? onCancelPressed;
+
+  const CustomNavigationBarOptions({
+    Key? key,
+    this.onCameraPressed,
+    this.onGalleryPressed,
+    this.onCancelPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.5,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            title: const Center(child: Text('Open Camera')),
+            onTap: onCameraPressed,
+          ),
+          ListTile(
+            title: const Center(child: Text('Open Gallery')),
+            onTap: onGalleryPressed,
+          ),
+          const SizedBox(height: 10),
+          ListTile(
+            title: const Center(child: Text('Cancel')),
+            onTap: onCancelPressed,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
 
 class _ItemWidget extends StatelessWidget {
   final double iconSize;
@@ -201,10 +229,8 @@ class _ItemWidget extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment:
-                        MainAxisAlignment.center, // Updated alignment to center
-                    crossAxisAlignment: CrossAxisAlignment
-                        .center, // Updated alignment to center
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       SvgPicture.asset(
                         item.svgAssetIconName,
@@ -253,10 +279,8 @@ class _ItemWidget extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment
-                            .center, // Updated alignment to center
-                        crossAxisAlignment: CrossAxisAlignment
-                            .center, // Updated alignment to center
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           SvgPicture.asset(
                             item.svgAssetIconName,
@@ -286,7 +310,7 @@ class _ItemWidget extends StatelessWidget {
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: -28, // Adjust the top value to position the FAB
+                  top: -28,
                   child: Container(
                     alignment: Alignment.center,
                     height: 36,
@@ -305,7 +329,6 @@ class _ItemWidget extends StatelessWidget {
   }
 }
 
-/// The [CustomBottomNavigationBar.items] definition.
 class CustomBottomNavigationBarItem {
   CustomBottomNavigationBarItem({
     this.badgeNumber = 0,
@@ -319,22 +342,9 @@ class CustomBottomNavigationBarItem {
 
   final double width;
   final int badgeNumber;
-
-  /// Defines this item's icon which is placed in the right side of the [labelText].
   final String svgAssetIconName;
-
-  /// Defines this item's label which placed in the left side of the [svgAssetIconName].
   final String labelText;
-
-  /// The [svgAssetIconName] and [labelText] color defined when this item is selected. Defaults
-  /// to [AppColors.primaryColor].
   final Color activeColor;
-
-  /// The [svgAssetIconName] and [labelText] color defined when this item is not selected.
   final Color? inactiveColor;
-
-  /// The alignment for the [labelText].
-  ///
-  /// This will take effect only if [labelText] it a [Text] widget.
   final TextAlign? textAlign;
 }

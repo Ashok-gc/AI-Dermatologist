@@ -38,5 +38,9 @@ class AppAssetImages {
   static const String rightarrowSVG = 'assets/icons/line/arrowrightt.svg';
   static const String filterSVG = 'assets/icons/line/filter.svg';
   static const String tasksquareSVG = 'assets/icons/line/tasksquare.svg';
+  static const String slideUpPanelNotchSVG = 'assets/icons/solid/slide_up_panel_top_notch.svg';
+  static const String callingSVGLogoLine = 'assets/icons/line/calling.svg';
+
+
 
 }

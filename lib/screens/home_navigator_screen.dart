@@ -87,7 +87,9 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
                           // Open camera logic
                           Navigator.pop(context);
                         },
-                        title: const Text('Open Camera'),
+                        title: const Text('Open Camera',
+                        textAlign: TextAlign.center,
+                        ),
                       ),
                       const Divider(),
                       ListTile(
@@ -95,7 +97,9 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
                           // Open gallery logic
                           Navigator.pop(context);
                         },
-                        title: const Text('Open Gallery'),
+                        title: const Text('Open Gallery',
+                        textAlign: TextAlign.center,
+                        ),
                       ),
                     ],
                   ),

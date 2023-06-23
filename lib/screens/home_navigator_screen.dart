@@ -1,4 +1,4 @@
-
+import 'package:ai_dermatologist/utils/constants/app_page_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,7 +9,6 @@ import 'home_navigator_screens/map_screen.dart';
 import 'home_navigator_screens/home_screen.dart';
 import 'home_navigator_screens/my_account_screen.dart';
 import 'home_navigator_screens/history_screen.dart';
-
 
 class HomeNavigatorScreen extends StatefulWidget {
   final Object? screenTabIndex;
@@ -61,6 +60,73 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
     super.initState();
   }
 
+  void _showOptionsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Container(
+            
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    // color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        onTap: () {
+                          // Open camera logic
+                          Navigator.pop(context);
+                        },
+                        title: const Text('Open Camera'),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        onTap: () {
+                          // Open gallery logic
+                          Navigator.pop(context);
+                        },
+                        title: const Text('Open Gallery'),
+                      ),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        onTap: () {
+                          Navigator.pushNamed(context, AppPageNames.homeNavigatorScreen);
+                        },
+                        title: const Center(child: Text('Cancel')),
+                      ),
+                    ],
+                  ),
+                ),
+                
+              ],
+            ),
+            
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +158,6 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
               width: 90,
               inactiveColor: AppColors.bodyTextColor,
             ),
-
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.taskSVGLogoLine,
               labelText: 'History',
@@ -108,13 +173,11 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
           ],
         ),
       ),
-
       floatingActionButton: Positioned(
         bottom: 28,
         child: CustomIconButtonWidget2(
           onTap: () {
-            // Go to add product screen
-            // Navigator.pushNamed(context, AppPageNames.addProductScreen);
+            _showOptionsDialog(context); // Show options dialog
           },
           fixedSize: const Size(63, 63),
           backgroundColor: Colors.white,
@@ -126,7 +189,6 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
           ),
         ),
       ),
-      // Set the FloatingActionButton location and shape
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       extendBody: true,
     );

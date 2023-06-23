@@ -114,47 +114,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
   }
 }
 
-class CustomNavigationBarOptions extends StatelessWidget {
-  final VoidCallback? onCameraPressed;
-  final VoidCallback? onGalleryPressed;
-  final VoidCallback? onCancelPressed;
-
-  const CustomNavigationBarOptions({
-    Key? key,
-    this.onCameraPressed,
-    this.onGalleryPressed,
-    this.onCancelPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.5,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            title: const Center(child: Text('Open Camera')),
-            onTap: onCameraPressed,
-          ),
-          ListTile(
-            title: const Center(child: Text('Open Gallery')),
-            onTap: onGalleryPressed,
-          ),
-          const SizedBox(height: 10),
-          ListTile(
-            title: const Center(child: Text('Cancel')),
-            onTap: onCancelPressed,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
 class _ItemWidget extends StatelessWidget {
   final double iconSize;
   final bool isSelected;

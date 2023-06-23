@@ -79,34 +79,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                       }).toList(),
                     ),
                   ),
-                  SizedBox(
-                    width: 56,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return CustomNavigationBarOptions(
-                              onCameraPressed: () {
-                                // Handle open camera action
-                                Navigator.pop(context);
-                              },
-                              onGalleryPressed: () {
-                                // Handle open gallery action
-                                Navigator.pop(context);
-                              },
-                              onCancelPressed: () {
-                                // Handle cancel action
-                                Navigator.pop(context);
-                              },
-                            );
-                          },
-                        );
-                      },
-                      backgroundColor: AppColors.primaryColor,
-                      child: const Icon(Icons.camera_alt_outlined),
-                    ),
-                  ),
+                  
+
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -129,6 +103,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                       }).toList(),
                     ),
                   ),
+                   
                 ],
               ),
             ),

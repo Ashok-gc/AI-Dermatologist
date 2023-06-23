@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../utils/constants/app_constants.dart';
+import '../widgets/core_widgets.dart';
 import '../widgets/screen_widgets/home_navigator_screen_widgets.dart';
 import 'home_navigator_screens/map_screen.dart';
 import 'home_navigator_screens/home_screen.dart';
@@ -62,7 +64,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(229, 242, 245, 252),
+      backgroundColor: AppColors.container2,
       body: _nestedScreenWidget,
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
@@ -70,7 +72,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
           selectedIndex: _currentPageIndex,
           curve: Curves.easeOutBack,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          backgroundColor: const Color.fromARGB(229, 242, 245, 252),
+          // backgroundColor: const Color.fromARGB(229, 242, 245, 252),
           itemCornerRadius: 10,
           showElevation: false,
           onItemSelected: (selectedPageIndex) => setState(() {
@@ -94,7 +96,7 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
             CustomBottomNavigationBarItem(
               svgAssetIconName: AppAssetImages.taskSVGLogoLine,
               labelText: 'History',
-              width: 120,
+              width: 100,
               inactiveColor: AppColors.bodyTextColor,
             ),
             CustomBottomNavigationBarItem(
@@ -106,6 +108,27 @@ class _HomeNavigatorScreenState extends State<HomeNavigatorScreen> {
           ],
         ),
       ),
+
+      floatingActionButton: Positioned(
+        bottom: 28,
+        child: CustomIconButtonWidget2(
+          onTap: () {
+            // Go to add product screen
+            // Navigator.pushNamed(context, AppPageNames.addProductScreen);
+          },
+          fixedSize: const Size(63, 63),
+          backgroundColor: Colors.white,
+          child: SvgPicture.asset(
+            AppAssetImages.cameraSVGLogoSolid,
+            height: 32,
+            width: 32,
+            color: AppColors.primaryColor,
+          ),
+        ),
+      ),
+      // Set the FloatingActionButton location and shape
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      extendBody: true,
     );
   }
 }

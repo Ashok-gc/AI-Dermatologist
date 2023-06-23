@@ -397,13 +397,14 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                             ),
                             onTap: () {},
                           ),
-                          AppGaps.hGap24
+                          AppGaps.hGap90
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
+              
             ],
           ),
         ),

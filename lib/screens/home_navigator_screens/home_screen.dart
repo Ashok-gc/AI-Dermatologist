@@ -279,11 +279,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       '3',
                     ],
                   ),
-
-                  AppGaps.hGap10
+                  AppGaps.hGap100
                 ],
               ),
             ),
+            // AppGaps.hGap100,
           ],
         ),
       ),

@@ -820,6 +820,69 @@ class CustomIconButtonWidget extends StatelessWidget {
   }
 }
 
+class CustomIconButtonWidget2 extends StatelessWidget {
+  final void Function()? onTap;
+  final Border? border;
+  final Widget child;
+  final Color backgroundColor;
+  final Size fixedSize;
+  final Radius borderRadiusRadiusValue;
+  final bool isCircleShape;
+  final bool hasShadow;
+  final Color borderColor;
+  final double borderWidth; // Add a new property for border width
+
+  const CustomIconButtonWidget2({
+    Key? key,
+    this.onTap,
+    required this.child,
+    this.backgroundColor = Colors.white,
+    this.fixedSize = const Size(40, 40),
+    this.borderRadiusRadiusValue = const Radius.circular(14),
+    this.border,
+    this.isCircleShape = true,
+    this.hasShadow = false,
+    this.borderColor = AppColors.container2,
+    this.borderWidth = 5.0, // Set a default border width
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: fixedSize.height,
+      width: fixedSize.width,
+      padding: EdgeInsets.zero,
+      decoration: BoxDecoration(
+        shape: isCircleShape ? BoxShape.circle : BoxShape.rectangle,
+        borderRadius: isCircleShape
+            ? null
+            : BorderRadius.all(borderRadiusRadiusValue),
+        border: Border.all(
+          color: borderColor,
+          width: borderWidth, // Set the border width
+        ),
+      ),
+      child: Material(
+        color: backgroundColor,
+        shape: isCircleShape ? const CircleBorder() : null,
+        shadowColor: hasShadow ? AppColors.primaryColor.withOpacity(0.9) : null,
+        elevation: hasShadow ? 8 : 0,
+        borderRadius: isCircleShape
+            ? null
+            : BorderRadius.all(borderRadiusRadiusValue),
+        child: InkWell(
+          onTap: onTap,
+          customBorder: isCircleShape ? const CircleBorder() : null,
+          borderRadius: BorderRadius.all(borderRadiusRadiusValue),
+          child: Center(child: child),
+        ),
+      ),
+    );
+  }
+}
+
+
+
 /// Custom large text button widget
 class CustomLargeTextButtonWidget extends StatelessWidget {
   final bool isSmallScreen;

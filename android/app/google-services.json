@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "545607250893",
+    "project_id": "ai-dermatologist-d4f8e",
+    "storage_bucket": "ai-dermatologist-d4f8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545607250893:android:6bad93434f82a6f976ca84",
+        "android_client_info": {
+          "package_name": "com.ashok.ai_dermatologist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545607250893-hu30m0obptj1sfum9sc2v77a2j20lpm4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ashok.ai_dermatologist",
+            "certificate_hash": "a2718df03a97be15a6816d7c94c9a4b9d4997e2f"
+          }
+        },
+        {
+          "client_id": "545607250893-8704dvqial5afff38cmmo3fcuj70pak1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVF51v6U7bbP26XZcHQxz-UwmmfXtn7Vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545607250893-8704dvqial5afff38cmmo3fcuj70pak1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
